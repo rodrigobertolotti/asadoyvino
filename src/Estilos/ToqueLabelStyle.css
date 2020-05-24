@@ -1,0 +1,508 @@
+@media only screen and (min-width: 600px){
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .rowUbicacionFecha {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    width: 100%;
+  }
+
+  .columna1 {
+    display: flex;
+    flex-direction: ;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 2;
+  }
+
+  .columnaAlineadoDerecha {
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    margin-right: 20px;
+    flex-basis: 100%;
+    flex:1;
+  }
+
+  .columnaEstrellas{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;     
+     justify-content: center;
+  }
+
+  .columnaDerecha {
+    align-items: right;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  .caracteristicas{
+      display: flex;
+      flex-direction: column;
+      padding-top: 5px;
+  }
+
+  .iconoToque{
+      height: 40px;
+      align-self: right;
+  }
+
+  .columna3 {
+    flex: 4;
+  }
+
+
+  .iconoAsistentes{
+      margin: 0;
+      padding-top: 10px;
+      padding-left: 10px;
+  }
+
+  .columnaDoble {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 3;
+  }
+
+.labelProximos{
+    display: flex;
+    flex-direction: row;
+    border-radius: 2px;
+    height: 70px;
+    width: 100%;
+    margin: 0px;
+    background: rgba(255,255,255,1);
+}
+
+.label{
+    border-radius: 2px;
+    height: 70px;
+    width: 100%;
+    margin: 0px;
+}
+
+.nombreToque{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 15px;
+    text-transform: uppercase;
+}
+
+.cantidadAsistentes{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 12px;
+    color: green;
+    margin-left: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.cantidadAsistentesOpinion{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 12px;
+    color: green;
+    margin-left: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ubicacionToque{
+    font-family: 'Cairo', sans-serif;
+    margin-top: -2px;
+    font-size: 9px;
+    margin-left: 5px;
+    font-weight: 700;
+    display: inline;
+}
+
+.inline{
+    display: flex;
+    flex-direction: row;
+}
+.fecha{
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    text-align: right;
+}
+
+.estrellas{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    display: inline;
+    margin-right: 15px;
+}
+
+.rowLike{
+    display: flex;
+    margin-left: auto;
+}
+
+.corazon{
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.estrella{
+    display: inline;
+}
+
+.comentarios{
+    margin: 0px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.iconoUbicacion{
+    margin-left: 13px;
+    margin-top: -3px;
+}
+
+
+.guitarra{
+    background-color: rbga(255,255,255,0.8);
+}
+
+.textoBoton{
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin:5px;
+}
+
+
+.divBoton{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alineoDerecha{
+    display: flex;
+    margin-left: auto;
+}
+
+.textoLugar{
+    margin: 0px;
+}
+
+.tablaCaract{
+    border-radius: 5px;
+    width: 80%;
+}
+
+.divAgregar{
+    display: flex;
+    align-content: center;
+}
+
+.campoTablaIcono{
+    width: 15%;
+}
+.campoTablaTexto{
+    width: 30%;
+    align-content: center;
+    text-align: center;
+}
+
+.mapa{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.botonAsistire,
+.botonNoAsistire{
+    width: 85%;
+    align-self: center;
+}
+
+.resumenEstrellasOpinion{
+    margin:0;
+    margin-left:10px;
+    margin-top: -3px;
+}
+
+.resumenComentariosOpinion{
+    margin:0;
+    margin-left: 10px;
+}
+
+.azules{
+    color: skyblue
+}
+
+.detalleUbicacionToque{
+    margin: 0px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10px;
+}
+
+.img-with-text {
+    text-align: justify;
+}
+.cuantoFalta{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+}
+
+@media only screen and (max-width: 600px){
+
+    .cuantoFalta{
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .detalleUbicacionToque{
+        margin: 0px;
+        font-family: 'Cairo', sans-serif;
+        font-size: 10px;
+        margin-top: -5px;
+    }
+    
+    .img-with-text {
+        text-align: justify;
+        margin-top: 0px;
+    }
+    .cantidadAsistentes{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        font-size: 12px;
+        color: green;
+        margin-left: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .divEstrellasOpinion{
+        margin-top: 6px;
+    }
+    .cantidadAsistentesOpinion{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        font-size: 12px;
+        color: green;
+        margin-left: 15px;
+        margin-top: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .iconoToque{
+        margin-top: 20px;
+        height: 40px;
+        align-self: right;
+    }
+    .caracteristicas{
+        display: none;
+    }
+    
+  .columna1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  .columna4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 4;
+  }
+  .columna3{
+      flex: 4;
+  }
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .rowCentrado {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
+      }
+
+      .rowUbicacionFecha {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+      }
+
+
+      .columnaDoble {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 2;
+      }
+    
+    .label{
+        border-radius: 5px;
+        height: 70px;
+        width: 100%;
+        margin: 0px;
+        background-color: white;
+    }
+    
+    .labelProximos{
+        display: flex;
+        flex-direction: row;
+        border-radius: 2px;
+        height: 70px;
+        width: 100%;
+        margin: 0px;
+        background: rgba(255,255,255,1);
+    }
+
+    .nombreToque{
+        font-family: 'Cairo', sans-serif;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin: 0px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 15px;
+        margin-top:10px;
+        line-height: 20px;
+        
+    }
+
+    .ubicacionToque{
+        font-family: 'Cairo', sans-serif;
+        font-weight: 600;
+        font-size: 10px;
+        margin-left: 5px;
+        margin-top: 0px;
+    }
+    
+    .fecha{
+        font-family: 'Cairo', sans-serif;
+        font-weight: 800;
+        display: flex;
+        text-align: right;
+    }
+    
+    .estrellas{
+        margin-top: 5px;
+        margin-bottom: 0px;
+        display: inline;
+        margin-right: 10px;
+    }
+    
+    .rowLike{
+        display: flex;
+        align-content: center;
+    }
+    
+    .corazon{
+        margin-top: 10px;
+    }
+    .estrella{
+        display: inline;
+    }
+    
+    .comentarios{
+        font-family: 'Cairo', sans-serif;
+        margin-top:3px;
+        font-size: 14px;
+    }
+    
+    .iconoUbicacion{
+        margin-left: 15px;
+    }
+    
+    
+    .guitarra{
+        background-color: rbga(255,255,255,0.8);
+    }
+
+    .textoBoton{
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin:5px;
+    }
+    
+    .divBoton{
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .alineoDerecha{
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .tablaCaract{
+        border-radius: 5px;
+        width: 90%;
+    }
+    
+    .campoTabla{
+        width: 25%;
+    }
+
+    .mapa{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .columnBoton{
+        display: flex;
+    }
+
+    .botonAsistire{
+        width: 85%;
+    }
+
+    .botonNoAsistire{
+        width: 85%;
+        background-color: tomato;
+    }
+    .azules{
+        color: skyblue
+    }
+    
+.resumenEstrellasOpinion{
+    margin:0;
+    margin-left:10px;
+    margin-top: 0px;
+}
+
+.resumenComentariosOpinion{
+    margin:0;
+    margin-left: 10px;
+}
+}

@@ -1,0 +1,220 @@
+html{height: 100%;}
+body{
+  height: 100%;
+  z-index:100;
+}
+
+@media only screen and (min-width: 600px) {
+.label{
+    background-color: white;
+}
+
+.titulo{
+  font-family: 'Cairo', sans-serif;
+  font-size: 30px;
+  margin:0px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.textoHeader{
+  font-family: 'Cairo', sans-serif;
+  font-size: 28px;
+  margin:0px;
+  margin-left: 10px; 
+  font-weight: 700;
+  color: black;
+}
+
+.textoMenu{
+  font-family: 'Cairo', sans-serif;
+  font-size: 30px;
+  margin:0px;
+  font-weight: 600;
+  color: black;
+}
+
+.subtitulo{
+  font-family: 'Cairo', sans-serif;
+  font-size: 24px;
+  margin:0px;
+  font-weight: 600;
+}
+
+.subtitulochico{
+  font-family: 'Cairo', sans-serif;
+  font-size: 20px;
+  margin:0px;
+  font-weight: 600;
+}
+
+.subtituloChicoSume{
+  font-family: 'Cairo', sans-serif;
+  font-size: 22px;
+  color: green;
+  margin:0px;
+  font-weight: 700;
+}
+
+.texto{
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  margin:0px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.textoLugar{
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  margin:0px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.centrado{
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowGeneral {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .columnGeneral {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    align-items: center;
+  }
+
+.fondo{
+    background-image: url("https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,w_1400/v1587390729/william-krause-97p-JwqdyW4-unsplash_vyzjid.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.espacioMenu{
+  height:50px;
+}
+.centrado{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectDepartamento{
+  width: 80%;
+  border: 2px black;
+}
+.select{
+  display: flex;
+  margin:0px;
+  padding: 15px;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+}
+}
+@media only screen and (max-width: 600px) {
+  .titulo{
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+    margin:0px;
+    margin-top: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .textoHeader{
+    font-family: 'Cairo', sans-serif;
+    font-size: 28px;
+    margin:0px;
+    margin-left: 10px; 
+    font-weight: 700;
+    color: black;
+  }
+
+  .select{
+    display: flex;
+    margin:0px;
+    padding: 15px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .selectDepartamento{
+    width: 80%;
+    border: 2px black;
+  }
+
+  .textoMenu{
+    font-family: 'Cairo', sans-serif;
+    font-size: 30px;
+    margin:0px;
+    font-weight: 600;
+    color: black;
+  }
+  
+  
+  .subtitulo{
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+    margin:0px;
+    font-weight: 600;
+  }
+
+  .subtitulochico{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 600;
+  }
+
+  .texto{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .label{
+    background-color: white;
+}
+.rowGeneral {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .columnGeneral {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    align-items: center;
+  }
+
+.fondo{
+  background-image: url("https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,w_1400/v1587390729/william-krause-97p-JwqdyW4-unsplash_vyzjid.jpg");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.subtituloChicoSume{
+  font-family: 'Cairo', sans-serif;
+  font-size: 22px;
+  color: green;
+  margin:0px;
+  font-weight: 700;
+}
+}

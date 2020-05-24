@@ -1,0 +1,131 @@
+@media only screen and (min-width: 600px){
+li {
+    margin: 0px;
+    margin-top:-10px;
+    padding: 0px;
+}
+
+.containerList{
+    height: 200px;
+}
+
+.listContainer{
+    height: 400px;
+    overflow: auto;
+    display: 'block';
+    width: 100%;
+}
+
+.listaToquesDiv{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-radius:5px;
+    background-color: rgba(255,255,255,0.3);
+    width: 80%;
+    padding: 10px;
+    padding-top:15px;
+}
+
+.listaToquesDivOpiniones{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.3);
+    padding: 10px;
+    padding-top: 15px;
+    width: 80%;
+}
+
+.destacadosDiv{
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.3);
+    padding: 10px;
+    padding-top: 15px;
+    width: 80%;
+}
+
+.espacio{
+    height:15px
+}
+
+.divBoton{
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+}
+}
+
+@media only screen and (max-width: 600px){
+
+    .columna3{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+    }
+    
+    .subtitulo{
+        font-family: 'Cairo', sans-serif;
+        font-size: 20px;
+        
+    }
+
+    .subtituloChico{
+        font-family: 'Cairo', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .destacadosDiv{
+        border-radius: 5px;
+        background-color: rgba(255,255,255,0.3);
+        padding: 10px;
+        padding-top: 15px;
+        width: 80%;
+    }
+
+    li {
+        margin: 0px;
+        margin-top:-10px;
+        padding: 0px;
+    }
+    
+    .containerList{
+        height: 200px;
+    }
+    
+    .listContainer{
+        height: 300px;
+        overflow: auto;
+        display: 'block';
+        width: 100%;
+    }
+    
+    .listaToquesDiv{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: rgba(255,255,255,0.3);
+        width: 80%;
+        padding: 10px;
+    }
+    
+    .listaToquesDivOpiniones{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        background-color: rgba(255,255,255,0.3);
+        padding: 10px;
+        width: 80%;
+    }
+
+    .espacio{
+        height:10px
+    }
+    
+    .divBoton{
+        margin-top: 20px;
+        align-items: center;
+        text-align: center;
+    }
+}

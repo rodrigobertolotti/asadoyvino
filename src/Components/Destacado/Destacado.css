@@ -1,0 +1,163 @@
+@media only screen and (min-width: 600px){
+.nombreToquePrincipal{
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+    margin:0px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.subtituloBanda{
+    font-family: 'Cairo', sans-serif;
+    font-size: 24px;
+    margin:0px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+    color: white;
+    align-self: center;
+}
+
+.tiempoTimer{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+.centrado{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    flex: 3,
+}
+
+.divCountdown{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    flex: 1
+}
+
+.logoDestacado{
+    border-radius: 50%;
+    width: 60%;
+}
+
+.columna3{
+    flex: 3;
+}
+.columna1{
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.integrantesDiv{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.integrantes{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.integrantesItem{
+    flex: 1;
+}
+
+.descripcion{
+    font-size: 9px;
+    margin-top: 10px;
+}
+}
+@media only screen and (max-width: 600px){
+    
+    .destacadosDiv{
+        margin-top: 20px;
+    }
+    .nombreToquePrincipal{
+        font-family: 'Cairo', sans-serif;
+        font-size: 20px;
+        margin:0px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+    
+    .subtituloBanda{
+        font-family: 'Cairo', sans-serif;
+        font-size: 24px;
+        margin:0px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        margin-left: 10px;
+        color: white;
+        align-self: center;
+    }
+    
+    .tiempoTimer{
+        font-family: 'Cairo', sans-serif;
+        font-size: 14px;
+        margin:0px;
+        font-weight: 500;
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+    .centrado{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        flex: 3,
+    }
+    
+    .divCountdown{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .logo{
+        flex: 1
+    }
+    
+    .logoDestacado{
+        border-radius: 50%;
+        width: 60%;
+    }
+    
+    .columna3{
+        flex: 3;
+    }
+    .columna1{
+        flex: 2;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .integrantesDiv{
+        display: flex;
+        flex-direction: column;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .integrantes{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+    
+    .integrantesItem{
+        flex: 1;
+    }
+    
+    .descripcion{
+        font-size: 9px;
+        margin-top: 10px;
+    }
+}

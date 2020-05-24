@@ -1,0 +1,23 @@
+.comentariosContainer{
+    height: 200px;
+    overflow: auto;
+    display: 'block';
+    width: 100%;
+}
+
+.usuarioComentario{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.comentarioComentario{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.comentario{
+    width: 100%;
+}

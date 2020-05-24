@@ -1,0 +1,41 @@
+.buscadorBandas{
+    overflow: auto;
+    display: 'block';
+    width: 100%;
+    background-color: black;
+}
+
+.miniaturaBanda{
+    display:flex;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.nombreBanda{
+    align-self: center;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.logo{
+    width: 150px;
+}
+
+.banda{
+    background-color: black;
+    height: 800px;
+}
+
+.tituloBanda{
+    margin: 0;
+    align-self: center;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 34px;
+    padding: 10px;
+}

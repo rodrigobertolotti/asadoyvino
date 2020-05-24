@@ -1,0 +1,1 @@
+export const traerTodosLosToques = "http://localhost:8080/asadoyvinoAPI/api/TraerToques.php";
