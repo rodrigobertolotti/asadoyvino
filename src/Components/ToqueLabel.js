@@ -4,10 +4,10 @@ import '../Estilos/ToqueLabelStyle.css';
 export default function ToqueLabel(props) {
     let fecha = props.toque.fecha;
     let fechaSplitArray = fecha.split("-");
-    let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1] + "/" + fechaSplitArray[0];
+    let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
     let imagen = "";
     let extraUbic="";
-    if (props.toque.lugar.length > 9){
+    if (props.toque.lugar.length > 12){
         extraUbic="..";
     }
     switch (props.toque.tamano) {
@@ -27,16 +27,15 @@ export default function ToqueLabel(props) {
     let diff = (Date.parse(new Date(props.toque.fecha)) - Date.parse(new Date())) / 1000;
     switch(Math.floor(diff / 86400)){
         case 0:
-            cuantoFalta="HOY";
+            nuevaFecha="HOY";
         break;
         case 1:
-            cuantoFalta="MAÑANA"; 
+            nuevaFecha="MAÑANA"; 
         break;
         case 2:
-            cuantoFalta="2 DIAS";
+            nuevaFecha="2 DIAS";
         break;
         default:
-            cuantoFalta="";
         break;
     }
 
@@ -45,7 +44,7 @@ export default function ToqueLabel(props) {
             <div className="columna3">
                 <div>
                     <div className="row">
-                        <p className="nombreToque">{props.toque.nombre} <span className="cantidadAsistentes">{props.toque.cantidadAsistentes} <i class="fas fa-check"></i> </span><span className="cuantoFalta">{cuantoFalta}</span></p>
+                        <p className="nombreToque">{props.toque.nombre} <span className="cantidadAsistentes">{props.toque.cantidadAsistentes} <i class="fas fa-users"></i> </span></p>
                     </div>
                 </div>
             </div>
@@ -57,7 +56,7 @@ export default function ToqueLabel(props) {
                             className="iconoToque"
                             alt="sometext"
                             ></img>
-                        <p className="detalleUbicacionToque">{props.toque.lugar.substring(0,10)}{extraUbic}</p>
+                        <p className="detalleUbicacionToque">{props.toque.departamento.substring(0,9)}{extraUbic}</p>
                         </div>
                     </div>
                 </div>

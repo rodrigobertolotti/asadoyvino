@@ -95,8 +95,7 @@ class ListaToquesOpinion extends React.Component {
                         >
                             <div className="row">
                                 <div className="columna3">
-                                    <p className="subtitulo">QUÉ TE PARECIÓ?</p>
-                                    <p className="subtituloChico">{this.state.toqueSeleccionado.nombre} - {this.state.toqueSeleccionado.lugar}</p>
+                                    <p className="subtituloChico">{this.state.toqueSeleccionado.nombre} en {this.state.toqueSeleccionado.lugar}</p>
                                 </div>
                                 <div className="column">
                                     <div className="alineoDerecha">

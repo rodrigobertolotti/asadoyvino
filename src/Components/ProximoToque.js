@@ -74,7 +74,7 @@ class ProximoToque extends React.Component {
                 <div className="espacio"></div>
             </center>
             <div className="espacio"></div>
-            <p className="texto">{this.props.toque.descripcion}</p>
+            <p className="texto">{this.props.toque.descipcion}</p>
             <div className="row">
                 <div className="columna1">
                     {this.state.sume === false && <Button className="botonAsistire" disabled={this.state.sume} variant="contained" color="primary" onClick={this.sumarAsistente}>

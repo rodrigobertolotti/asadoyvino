@@ -6,12 +6,11 @@ import axios from 'axios';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TheatersIcon from '@material-ui/icons/Theaters';
-
-
+import UploadImage from './UploadImage';
+import '../Estilos/AgregarToque.css';
 
 import {
     MuiPickersUtilsProvider,
@@ -29,7 +28,8 @@ class AgregarToque extends React.Component {
         precioEntradas: "",
         ventaEntradas: "",
         descripcion: "",
-        cantidadAsistentes: ""
+        cantidadAsistentes: "",
+        linkImagen: ""
     }
 
     agregarToque = () => {
@@ -47,7 +47,8 @@ class AgregarToque extends React.Component {
             "cantidadAsistentes": 0,
             "tamano":"1",
             "finalizado":"0",
-            "departamento":"Montevideo"
+            "departamento":"Montevideo",
+            "linkImagen": this.state.linkImagen
         })
             .then(function (response) {
                 console.log("Agregado correctamente");
@@ -100,12 +101,17 @@ class AgregarToque extends React.Component {
         })
     )
 
+    capturoLinkImagen = (link) => {
+        this.setState({
+            linkImagen: link
+        })
+    }
 
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="column">
+                <div className="rowAgregar">
+                    <div className="columnAgregar">
                         <TextField
                             onChange={this.handleChangeNombre}
                             style={{ width: '90%' }}
@@ -139,7 +145,7 @@ class AgregarToque extends React.Component {
                                 ),
                             }} />
                     </div>
-                    <div className="column">
+                    <div className="columnAgregar">
                         <TextField 
                         onChange={this.handleChangeLugar} 
                         style={{ width: '90%' }} 
@@ -184,6 +190,7 @@ class AgregarToque extends React.Component {
                     style={{ width: '90%' }}
                     onChange={this.handleChangeDescripcion}
                     label="Descripcion" />
+                <UploadImage capturo={(e) => this.capturoLinkImagen(e)}></UploadImage>
                 <Container style={{ textAlign: 'center', margin: '20px' }}>
                     <Button color="primary" onClick={this.agregarToque} variant="contained">
                         <p className="textoBoton">AGREGAR</p>

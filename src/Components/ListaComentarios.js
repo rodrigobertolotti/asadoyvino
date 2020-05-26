@@ -6,9 +6,9 @@ import '../Estilos/Estrellas.css';
 import Divider from '@material-ui/core/Divider';
 
 export default function ListaComentarios(props) {
-    console.log(props);
     return (
         <div className="divComentarios">
+            <p>Comentarios ({props.opiniones.length})</p>
             <List>
                 {props.opiniones.map((opinion) => (
                     <ListItem>

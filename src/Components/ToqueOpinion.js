@@ -39,9 +39,7 @@ class ToqueOpinion extends React.Component {
         let mostrarEstrellas = [];
         for (var i = 0; i < this.state.estrellas; i++) {
             mostrarEstrellas.push(
-                <i
-                    class={`fas fa-1x fa-star azules`}>
-                </i>);
+                <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,h_43/v1590448224/rock-and-roll_1_owavnr.png"></img>);
         }
         return (
             <div className="label">

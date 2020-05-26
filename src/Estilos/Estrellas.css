@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px){
+@media only screen and (min-width: 600px){
 .estrellaAmarilla{
     color: skyblue;
 }
@@ -26,11 +26,12 @@
 }
 
 .divComentarios{
-    height: 250px;
+    height: 200px;
     overflow: auto;
     display: 'block';
     width: 90%;
-    padding-bottom:20px;
+    padding-bottom:60px;
+    margin-bottom: 60px;
 }
 
 
@@ -55,10 +56,12 @@
 }
 .estrellaAmarilla{
     color: skyblue;
+    width: 30px;
 }
 
 .estrellaGris{
     color: grey;
+    width: 30px;
 }
 
 .estrellas{
@@ -75,11 +78,11 @@
 
 
 .divComentarios{
-    height: 250px;
+    height: 200px;
     overflow: auto;
     display: 'block';
     width: 90%;
-    padding-bottom:20px;
+    padding-bottom:60px;
 }
 
 

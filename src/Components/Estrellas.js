@@ -99,18 +99,19 @@ class Estrellas extends React.Component {
         const estrellas = [];
         for (var i = 0; i < 5; i++) {
             estrellas.push(
-                <i
+                <img
                     id={i}
+                    alt=""
                     onMouseOver={this.evaluarVoto}
                     onMouseOut={this.limpiarSeleccion}
                     onClick={this.votar}
-                    class={`fas fa-2x fa-star ${this.state.estiloEstrellas[i]}`}>
-                </i>);
+                    class={this.state.estiloEstrellas[i]}
+                    src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,h_43/v1590448224/rock-and-roll_1_owavnr.png"/>);
         }
         return (
             <div className="divOpinar">
                 <div class="comentarios">
-                    <TextField onChange={this.onChangeUsuario} style={{ width: '20%' }} id="standard-basic" label="Nombre" />
+                    <TextField onChange={this.onChangeUsuario} style={{ width: '30%' }} id="standard-basic" label="Nombre" />
                     <div className="espacio"></div>
                     <TextField onChange={this.onChangeComentario} style={{ width: '90%' }} id="standard-basic" label="Comentarios" />
                 </div>

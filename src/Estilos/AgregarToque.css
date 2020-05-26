@@ -1,0 +1,11 @@
+.rowAgregar{
+    display: flex;
+    flex-direction: row;
+    flex:1 
+}
+
+.columnAgregar{
+    display: flex;
+    flex-direction: column;
+    flex: 1
+}
