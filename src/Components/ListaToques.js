@@ -53,13 +53,14 @@ class ListaToques extends React.Component {
     }
 
     cerrarModal = () => {
-        console.log("Ejecuto cerrar modal");
+        this.setState({
+            openModal: false
+        })
         if (this.state.departamento === "Todos") {
             axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
                     this.setState({
                         toques: response.data.data,
-                        openModal: false
                     })
                 })
         } else {
@@ -68,7 +69,6 @@ class ListaToques extends React.Component {
                     if (response.length > 0) {
                         this.setState({
                             toques: response.data.data,
-                            openModal: false
                         })
                     }
                 })

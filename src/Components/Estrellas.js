@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import '../Estilos/Estrellas.css';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { guardarOpinionEstrellas } from '../Redux/OpinionesReducer/OpinionesActions';
 
@@ -118,6 +117,7 @@ class Estrellas extends React.Component {
         }
         return (
             <div className="divOpinar">
+                <center><p className="explicacion">Dejá tu opinion del toque, bandas o la organización. Publica artículos perdidos para que den con su dueño.</p></center>
                 <div class="comentarios">
                     <TextField variant="outlined" onChange={this.onChangeUsuario} style={{ width: '90%' }} id="standard-basic" label="Nombre" />
                     <div className="espacio"></div>

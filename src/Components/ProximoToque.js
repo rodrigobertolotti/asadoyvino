@@ -52,14 +52,17 @@ class ProximoToque extends React.Component {
         return false;
     }
     render() {
-
+        let fecha = this.props.toque.fecha;
+        let fechaSplitArray = fecha.split("-");
+        let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
         return (
             <div>
             <div className="divAgregar">
                 <table>
                     <td>
                         <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}</span></tr>
-                        <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}</strong></span></tr>
+                        <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{nuevaFecha} - {this.props.toque.hora}</strong></span></tr>
+                        <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}, {this.props.toque.departamento}</strong></span></tr>
                         <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
                         <tr><span className="textoCaracteristicas">Puntos de venta: <strong>{this.props.toque.ventaEntradas}</strong></span></tr>
                     </td>
@@ -83,7 +86,8 @@ class ProximoToque extends React.Component {
                     </Button>}
                     {this.state.sume === true &&
                         <div className="centrado">
-                            <p className="subtituloChicoSume">ASISTIRAS</p>
+                            <p className="subtituloChicoSume">ASISTIRAS  </p>
+                            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590867312/rock_i8ls6v.png"></img>
                         </div>}
                 </div>
             </div>

@@ -36,11 +36,13 @@ class ListaToquesOpinion extends React.Component {
     }
 
     cerrarModal = () => {
+        this.setState({
+            openModal: false
+        })
         axios.get('https://telonero.com/asadoyvino/api/TraerToquesFinalizados.php')
         .then((response) => {
             this.setState({
                 toques: response.data.data,
-                openModal: false
             })
         })
         .catch((error) => console.log(error));
