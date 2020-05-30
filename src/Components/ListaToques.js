@@ -3,9 +3,7 @@ import ToqueLabel from './ToqueLabel';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import '../Estilos/Principal.css';
-import Modal from 'react-modal';
 import Button from '@material-ui/core/Button';
-import ProximoToque from './ProximoToque';
 import ModalAgregarToque from './ModalAgregarToque';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -13,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import axios from 'axios';
 import '../constantes';
+import ModalProximoToque from './ModalProximoToque.js';
 
 class ListaToques extends React.Component {
 
@@ -54,6 +53,7 @@ class ListaToques extends React.Component {
     }
 
     cerrarModal = () => {
+        console.log("Ejecuto cerrar modal");
         if (this.state.departamento === "Todos") {
             axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
@@ -76,9 +76,15 @@ class ListaToques extends React.Component {
         document.body.style.overflow = '';
     }
 
-    agregarToque = () => {
+    abrirAgregarToque = () => {
         this.setState({
             modalAgregarToque: true
+        })
+    }
+
+    cerrarAgregarToque = () => {
+        this.setState({
+            modalAgregarToque: false
         })
     }
 
@@ -129,7 +135,6 @@ class ListaToques extends React.Component {
                 },
             }
         }
-
         return (
             <>
                 <div className="listaToquesDiv">
@@ -145,6 +150,11 @@ class ListaToques extends React.Component {
                             </Select>
                         </FormControl>
                     </div>
+                    <ModalProximoToque 
+                        openModal={this.state.openModal}
+                        toqueSeleccionado={this.state.toqueSeleccionado}
+                        cerrarModal={() => this.cerrarModal()}
+                        ></ModalProximoToque>
                     <div className="listContainer">
                         <List>
                             {
@@ -156,28 +166,16 @@ class ListaToques extends React.Component {
                                 ))
                             }
                         </List>
-                        <Modal isOpen={this.state.openModal} ariaHideApp={false}style={customStyles}>
-                            <div className="row">
-                                <div className="columna3">
-                                    <p className="tituloToque">{this.state.toqueSeleccionado.nombre}</p>
-                                </div>
-                                <div className="columna1">
-                                    <div className="alineoDerecha">
-                                        <i class="far fa-2x fa-times-circle" onClick={this.cerrarModal}></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ProximoToque
-                                toque={this.state.toqueSeleccionado}
-                            ></ProximoToque>
-                        </Modal>
                     </div>
                     <div className="divBoton">
-                        <Button onClick={this.agregarToque} variant="contained" color="primary">
+                        <Button onClick={this.abrirAgregarToque} variant="contained" color="primary">
                             <p className="textoBoton">AGREGAR</p>
                         </Button>
                     </div>
-                    {this.state.modalAgregarToque && <ModalAgregarToque estilo={customStyles}></ModalAgregarToque>}
+                    <ModalAgregarToque 
+                        openModal={this.state.modalAgregarToque}
+                        cerrarModal={() => this.cerrarAgregarToque()}
+                        estilo={customStyles}></ModalAgregarToque>
                 </div>
             </>
         )

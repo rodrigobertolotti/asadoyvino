@@ -3,9 +3,17 @@
     font-family: 'Cairo', sans-serif;
     font-size: 18px;
     margin:0px;
-    font-weight: 700;
+    font-weight: 600;
     margin-left: 10px;
+        margin-top: -15px;
+        margin-bottom: 5px;
     
+}
+
+.elementoTable{
+    background-color: rgba(0,0,0,0.7);
+    padding-right: 10px;
+    border-radius: 5px;
 }
 
 .contador{
@@ -14,6 +22,7 @@
     margin:0px;
     margin-left: 10px;
     font-weight: 700;
+    color: white;
 }
 
 .rowNoCentrado{
@@ -34,11 +43,11 @@
 
 .tiempoTimer{
     font-family: 'Cairo', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     margin:0px;
     font-weight: 500;
     margin-left: 10px;
-    margin-top: -10px;
+    color: white
 }
 .centrado{
     display: flex;
@@ -59,7 +68,7 @@
 
 .logoDestacado{
     border-radius: 5px;
-    width: 60%;
+    width: 80%;
 }
 
 .columna3{
@@ -107,12 +116,20 @@
         margin-top: -45px;
     }
 
+    .elementoTable{
+        background-color: rgba(0,0,0,0.7);
+        padding-right: 10px;
+        border-radius: 5px;
+    }
+
+
     .contador{
         font-family: 'Cairo', sans-serif;
-        font-size: 24px;
+        font-size: 22px;
         margin:0px;
         margin-left: 10px;
         font-weight: 700;
+        color: white;
     }
     
     .rowNoCentrado{
@@ -127,10 +144,12 @@
     }
     .nombreToquePrincipal{
         font-family: 'Cairo', sans-serif;
-        font-size: 16px;
+        font-size: 18px;
         margin:0px;
-        font-weight: 700;
+        font-weight: 600;
         margin-left: 10px;
+        margin-top: -15px;
+        margin-bottom: 5px;
     }
     
     .subtituloBanda{
@@ -146,11 +165,11 @@
     
     .tiempoTimer{
         font-family: 'Cairo', sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         margin:0px;
         font-weight: 500;
         margin-left: 10px;
-        margin-top: -10px;
+        color: white;
     }
     .centrado{
         display: flex;

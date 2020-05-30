@@ -25,14 +25,14 @@ class ModalAgregarToque extends React.Component {
     }
     render() {
         return (
-            <Modal isOpen={this.state.sigueAbierto} style={this.props.estilo}>
+            <Modal isOpen={this.props.openModal} style={this.props.estilo}>
                 <div className="row">
                     <div className="columna2">
                         <p className="titulo">Agregar toque</p>
                     </div>
                     <div className="columna1">
                         <div className="alineoDerecha">
-                            <i class="far fa-2x fa-times-circle" onClick={this.cerrarModal}></i>
+                            <i class="far fa-2x fa-times-circle" onClick={this.props.cerrarModal}></i>
                         </div>
                     </div>
                 </div>
