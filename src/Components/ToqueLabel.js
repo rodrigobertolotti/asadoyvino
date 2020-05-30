@@ -6,10 +6,6 @@ export default function ToqueLabel(props) {
     let fechaSplitArray = fecha.split("-");
     let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
     let imagen = "";
-    let extraUbic="";
-    if (props.toque.lugar.length > 12){
-        extraUbic="..";
-    }
     switch (props.toque.tamano) {
         case '1':
             imagen = "https://res.cloudinary.com/dyvyiepbv/image/upload/v1588792633/guitar-player_lo0viz.png";
@@ -41,14 +37,22 @@ export default function ToqueLabel(props) {
 
     return (
         <div className="labelProximos">
-            <div className="columna3">
-                <div>
-                    <div className="row">
-                        <p className="nombreToque">{props.toque.nombre} <span className="cantidadAsistentes">{props.toque.cantidadAsistentes} <i class="fas fa-users"></i> </span></p>
-                    </div>
+            <div className="column4">
+                <div className="row">
+                    <p className="nombreToque">{props.toque.nombre} <img className="iconoCantidadUsuarios" alt="" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590787713/grupo_1_ypbnce.png"></img><span className="cantidadAsistentes">{props.toque.cantidadAsistentes}</span></p>
+                </div>
+                <div className="row">
+                    <p className="fechaHora">{nuevaFecha} - <strong>{props.toque.hora}hs</strong></p>
+                </div>
+                <div className="row">
+                    <p className="lugar">{props.toque.lugar} - {props.toque.departamento}</p>
                 </div>
             </div>
-            <div className="columna1">
+        </div>
+    )
+}
+
+/*            <div className="columna1">
                 <div className="rowCentrado">
                     <div className="rowCentrado">
                         <div class="img-with-text">
@@ -56,19 +60,6 @@ export default function ToqueLabel(props) {
                             className="iconoToque"
                             alt="sometext"
                             ></img>
-                        <p className="detalleUbicacionToque">{props.toque.departamento.substring(0,9)}{extraUbic}</p>
                         </div>
                     </div>
-                </div>
-                <div className="caracteristicas">
-                    <div className="inline">
-                        <i class="far fa-calendar-alt iconoUbicacion"></i><p className="ubicacionToque">{nuevaFecha}</p>
-                    </div>
-                    <div className="inline">
-                        <i class="far fa-clock iconoUbicacion"></i><p className="ubicacionToque">{props.toque.hora}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+                </div>*/

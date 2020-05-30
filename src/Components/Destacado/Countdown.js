@@ -82,14 +82,14 @@ class Countdown extends Component {
         <div className="centrado">
         <table className="tablaCountdown">
             <tr>
-                <td className="elementoTable"><p className="nombreToquePrincipal">{this.addLeadingZeros(countDown.days)}</p></td>
-                <td className="elementoTable"><p className="nombreToquePrincipal">{this.addLeadingZeros(countDown.hours)}</p></td>
-                <td className="elementoTable"><p className="nombreToquePrincipal">{this.addLeadingZeros(countDown.min)}</p></td>
-                <td className="elementoTable"><p className="nombreToquePrincipal">{this.addLeadingZeros(countDown.sec)}</p></td>
+                <td className="elementoTable"><p className="contador">{this.addLeadingZeros(countDown.days)}</p></td>
+                <td className="elementoTable"><p className="contador">{this.addLeadingZeros(countDown.hours)}</p></td>
+                <td className="elementoTable"><p className="contador">{this.addLeadingZeros(countDown.min)}</p></td>
+                <td className="elementoTable"><p className="contador">{this.addLeadingZeros(countDown.sec)}</p></td>
             </tr>
             <tr>
                 <td className="elementoTable"><p className="tiempoTimer">dias</p></td>
-                <td className="elementoTable"><p className="tiempoTimer">horas</p></td>
+                <td className="elementoTable"><p className="tiempoTimer">hs</p></td>
                 <td className="elementoTable"><p className="tiempoTimer">min</p></td>
                 <td className="elementoTable"><p className="tiempoTimer">seg</p></td>
             </tr>

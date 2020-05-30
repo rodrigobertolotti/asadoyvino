@@ -1,12 +1,5 @@
 @media only screen and (min-width: 600px){
 
-
-.row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-  }
   
   .rowUbicacionFecha {
     display: flex;
@@ -14,6 +7,50 @@
     flex-wrap: wrap;
     padding-top: 5px;
     width: 100%;
+  }
+
+  
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+  }
+
+  .column1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  .column4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 4;
+  }
+
+  .fechaHora{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .lugar{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    margin-top: -5px;
+    font-size: 11px;
+    font-weight: 600; 
   }
 
   .columna1 {
@@ -56,7 +93,7 @@
   }
 
   .iconoToque{
-      height: 30px;
+      height: 50px;
   }
 
   .columna3 {
@@ -81,12 +118,15 @@
     display: flex;
     flex-direction: row;
     border-radius: 2px;
-    height: 70px;
+    height: 90px;
     width: 100%;
     margin: 0px;
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 0.8);
 }
 
+.iconoLugar{
+    margin-right: 5px;
+}
 .label{
     border-radius: 2px;
     height: 70px;
@@ -110,7 +150,7 @@
     font-size: 16px;
     color: green;
     margin-left: 5px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -124,14 +164,6 @@
     text-transform: uppercase;
 }
 
-.ubicacionToque{
-    font-family: 'Cairo', sans-serif;
-    margin-top: -2px;
-    font-size: 11px;
-    margin-left: 5px;
-    font-weight: 700;
-    display: inline;
-}
 
 .inline{
     display: flex;
@@ -219,10 +251,7 @@
     text-align: center;
 }
 
-.mapa{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+
 
 .botonAsistire,
 .botonNoAsistire{
@@ -241,9 +270,6 @@
     margin-left: 10px;
 }
 
-.azules{
-    color: skyblue
-}
 
 .detalleUbicacionToque{
     margin: 0px;
@@ -262,11 +288,69 @@
 .iconoRock{
     width: 20px;
 }
+
+.iconoRockGrande{
+    width: 40px;
+}
+
+.iconoCantidadUsuarios{
+    margin-bottom: -5px;
+    margin-left: 3px;
+}
 }
 
 @media only screen and (max-width: 600px){
+
+      
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+  }
+
+  .column1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 1;
+  }
+
+  .column4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    flex: 4;
+  }
+
+  .fechaHora{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .lugar{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 11px;
+    font-weight: 600; 
+    margin-top: -5px;
+  }
+
+  
     .iconoRock{
         width: 20px;
+    }
+    .iconoRockGrande{
+        width: 40px;
     }
     .cuantoFalta{
         font-size: 14px;
@@ -291,7 +375,7 @@
         font-size: 14px;
         color: green;
         margin-left: 5px;
-        font-weight: 600;
+        font-weight: 700;
         text-transform: uppercase;
     }
     
@@ -335,6 +419,11 @@
   .columna3{
       flex: 4;
   }
+
+  .iconoCantidadUsuarios{
+    margin-bottom: -5px;
+    margin-left: 3px;
+}
     .row {
         display: flex;
         flex-direction: row;
@@ -385,7 +474,7 @@
         display: flex;
         flex-direction: row;
         border-radius: 2px;
-        height: 70px;
+        height: 80px;
         width: 100%;
         margin: 0px;
         background: rgba(255,255,255,1);
@@ -509,5 +598,9 @@
 .resumenComentariosOpinion{
     margin:0;
     margin-left: 10px;
+}
+
+.iconoLugar{
+    margin-right: 5px;
 }
 }

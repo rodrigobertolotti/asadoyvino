@@ -36,7 +36,7 @@ class AgregarToque extends React.Component {
         let fechaActual = new Date(this.state.fecha);
         let fecha = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1) + "-" + fechaActual.getDate();
         let hora = fechaActual.getHours() + ":" + fechaActual.getMinutes();
-        axios.post('https://voyalagua.com/asadoyvino/api/AgregarToque.php', {
+        axios.post('https://telonero.com/asadoyvino/api/AgregarToque.php', {
             "nombre": this.state.nombre,
             "lugar": this.state.lugar,
             "fecha": fecha,
@@ -45,9 +45,9 @@ class AgregarToque extends React.Component {
             "ventaEntradas": this.state.ventaEntradas,
             "descripcion": this.state.descripcion,
             "cantidadAsistentes": 0,
-            "tamano":"1",
-            "finalizado":"0",
-            "departamento":"Montevideo",
+            "tamano": "1",
+            "finalizado": "0",
+            "departamento": "Montevideo",
             "linkImagen": this.state.linkImagen
         })
             .then(function (response) {
@@ -56,7 +56,7 @@ class AgregarToque extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-            this.props.onClick();
+        this.props.onClick();
     }
 
     handleChangeNombre = (e) => {
@@ -115,12 +115,13 @@ class AgregarToque extends React.Component {
                         <TextField
                             onChange={this.handleChangeNombre}
                             style={{ width: '90%' }}
+                            variant="filled"
                             label="Bandas" />
                         <div className="espacio"></div>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
                                 disableToolbar
-                                variant="inline"
+                                variant="filled"
                                 format="MM/dd/yyyy"
                                 margin="normal"
                                 id="date-picker-inline"
@@ -135,6 +136,7 @@ class AgregarToque extends React.Component {
                         <TextField
                             onChange={this.handleChangePrecioEntrada}
                             style={{ width: '90%' }}
+                            variant="filled"
                             label="Precio entradas"
                             inputProps={{
                                 maxLength: 4,
@@ -146,22 +148,24 @@ class AgregarToque extends React.Component {
                             }} />
                     </div>
                     <div className="columnAgregar">
-                        <TextField 
-                        onChange={this.handleChangeLugar} 
-                        style={{ width: '90%' }} 
-                        label="Lugar" 
-                        inputProps={{
-                            maxLength: 30,
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <LocationOnIcon />
-                                </InputAdornment>
-                            ),
-                        }}
+                        <TextField
+                            onChange={this.handleChangeLugar}
+                            style={{ width: '90%' }}
+                            label="Lugar"
+                            variant="filled"
+                            inputProps={{
+                                maxLength: 30,
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LocationOnIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
                         />
                         <div className="espacio"></div>
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardTimePicker
+                                variant="filled"
                                 margin="normal"
                                 id="time-picker"
                                 label="Hora"
@@ -175,6 +179,7 @@ class AgregarToque extends React.Component {
                         <TextField
                             onChange={this.handleChangeDondeCompro}
                             style={{ width: '90%' }}
+                            variant="filled"
                             inputProps={{
                                 maxLength: 30,
                                 startAdornment: (
@@ -186,10 +191,13 @@ class AgregarToque extends React.Component {
                             label="Lugares de venta?" />
                     </div>
                 </div>
+                <div className="espacio"></div>
                 <TextField
-                    style={{ width: '90%' }}
+                    style={{ width: '95%' }}
+                    variant="filled"
                     onChange={this.handleChangeDescripcion}
                     label="Descripcion" />
+                    <div className="espacio"></div>
                 <UploadImage capturo={(e) => this.capturoLinkImagen(e)}></UploadImage>
                 <Container style={{ textAlign: 'center', margin: '20px' }}>
                     <Button color="primary" onClick={this.agregarToque} variant="contained">

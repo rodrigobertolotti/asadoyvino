@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 export default function ListaComentarios(props) {
     return (
         <div className="divComentarios">
-            <p>Comentarios ({props.opiniones.length})</p>
+            <div className="espacio"></div>
             <List>
                 {props.opiniones.map((opinion) => (
                     <ListItem>
@@ -24,9 +24,7 @@ function Comentario(props){
     let mostrarEstrellas = [];
     for (var i = 0; i < props.estrellas; i++) {
         mostrarEstrellas.push(
-            <i
-                class={`fas fa-star azules`}>
-            </i>);
+            <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png"></img>);
     }
     return(
         <div className="comentario">

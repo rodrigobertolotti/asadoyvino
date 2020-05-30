@@ -11,7 +11,7 @@ class ToqueOpinion extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://voyalagua.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + this.props.toque.id + "")
+        axios.get('https://telonero.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + this.props.toque.id + "")
             .then((response) => {
                 console.log("cantidad comentarios: " + response.data.data.length);
                 let cantidadComentarios = response.data.data.length;
@@ -28,7 +28,7 @@ class ToqueOpinion extends React.Component {
             .catch((error) => {
                 console.log(error);
             })
-        axios.get('https://voyalagua.com/asadoyvino/api/CantidadEstrellasToque.php?idToque=' + this.props.toque.id + "")
+        axios.get('https://telonero.com/asadoyvino/api/CantidadEstrellasToque.php?idToque=' + this.props.toque.id + "")
             .then((response) => {
                 this.setState({
                     estrellas: response.data,
@@ -39,7 +39,7 @@ class ToqueOpinion extends React.Component {
         let mostrarEstrellas = [];
         for (var i = 0; i < this.state.estrellas; i++) {
             mostrarEstrellas.push(
-                <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,h_43/v1590448224/rock-and-roll_1_owavnr.png"></img>);
+                <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png"></img>);
         }
         return (
             <div className="label">

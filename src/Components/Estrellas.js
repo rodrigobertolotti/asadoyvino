@@ -12,7 +12,11 @@ class Estrellas extends React.Component {
 
     state = {
         voto: false,
-        estiloEstrellas: ['estrellaGris', 'estrellaGris', 'estrellaGris', 'estrellaGris', 'estrellaGris'],
+        estiloEstrellas: ['https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
         cantidad: 0,
         comentario: "",
         usuario: "",
@@ -23,10 +27,10 @@ class Estrellas extends React.Component {
         let estrellasNuevas = [];
         const cantEstrellas= this.encontrarEstrellas();
         for (var i = 0; i < cantEstrellas; i++) {
-            estrellasNuevas.push("estrellaAmarilla");
+            estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png");
         }
         for (var i = 0; i < 5 - cantEstrellas; i++) {
-            estrellasNuevas.push("estrellaGris");
+            estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png");
         }
         this.setState({
             estiloEstrellas: estrellasNuevas
@@ -34,14 +38,13 @@ class Estrellas extends React.Component {
     }
 
     evaluarVoto = (e) => {
-        console.log("hover");
         let seleccionada = (parseInt(e.target.id) + 1);
         let estrellasNuevas = [];
         for (var i = 0; i < seleccionada; i++) {
-            estrellasNuevas.push("estrellaAmarilla");
+            estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png");
         }
         for (var i = 0; i < 5 - seleccionada; i++) {
-            estrellasNuevas.push("estrellaGris");
+            estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png");
         }
         this.setState({
             estiloEstrellas: estrellasNuevas
@@ -51,7 +54,11 @@ class Estrellas extends React.Component {
     limpiarSeleccion = () => {
         if (this.state.voto === false) {
             this.setState({
-                estiloEstrellas: ['estrellaGris', 'estrellaGris', 'estrellaGris', 'estrellaGris', 'estrellaGris']
+                estiloEstrellas: ['https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
             })
         }
     }
@@ -105,15 +112,22 @@ class Estrellas extends React.Component {
                     onMouseOver={this.evaluarVoto}
                     onMouseOut={this.limpiarSeleccion}
                     onClick={this.votar}
-                    class={this.state.estiloEstrellas[i]}
-                    src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,h_43/v1590448224/rock-and-roll_1_owavnr.png"/>);
+                    className="iconoRockGrande"
+                    src={this.state.estiloEstrellas[i]}/>
+            )
         }
         return (
             <div className="divOpinar">
                 <div class="comentarios">
-                    <TextField onChange={this.onChangeUsuario} style={{ width: '30%' }} id="standard-basic" label="Nombre" />
+                    <TextField variant="outlined" onChange={this.onChangeUsuario} style={{ width: '90%' }} id="standard-basic" label="Nombre" />
                     <div className="espacio"></div>
-                    <TextField onChange={this.onChangeComentario} style={{ width: '90%' }} id="standard-basic" label="Comentarios" />
+                    <TextField
+                     multiline  
+                     rows={2}
+                     variant="outlined"
+                     onChange={this.onChangeComentario} 
+                     style={{ width: '90%' }} 
+                     label="Comentarios" />
                 </div>
                 <Container style={{ textAlign: 'center', marginTop: 25 }}>
                     <div class="estrellas">

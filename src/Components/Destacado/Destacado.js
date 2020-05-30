@@ -8,31 +8,52 @@ class Destacado extends React.Component {
 
     state = {
         toque: [],
-        loading: false
+        loading: false,
+        fecha: ""
     }
 
     componentDidMount(){
         this.setState({
             loading: true
         })
-        axios.get('https://voyalagua.com/asadoyvino/api/TraerToqueConMasAsistentes.php')
+        axios.get('https://telonero.com/asadoyvino/api/TraerToqueConMasAsistentes.php')
         .then(response => {
+            let fecha = response.data.data[0].fecha;
+            let fechaSplitArray = fecha.split("-");
+            let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
             this.setState({
                 toque: response.data.data[0],
-                loading: false
+                loading: false, 
+                fecha: nuevaFecha
             })
         })
     }
     render() {
-
+        let nuevaFecha="";
+        let diff = (Date.parse(new Date(this.state.toque.fecha)) - Date.parse(new Date())) / 1000;
+        switch(Math.floor(diff / 86400)){
+            case 0:
+                nuevaFecha="HOY";
+            break;
+            case 1:
+                nuevaFecha="MAÑANA"; 
+            break;
+            case 2:
+                nuevaFecha="2 DIAS";
+            break;
+            default:
+                nuevaFecha=this.state.fecha
+            break;
+        }
         return (
             <div className="destacadosDiv">
+                <img className="estrellaDestacado" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590790129/estrellas_cygndi.png"></img>
                 <div className="row">
                     {this.state.loading===true ? 
                         <div className="columna3">
                             <center>
                             <ClipLoader
-                            size={100}
+                            size={50}
                             color={"#123abc"}
                             loading={this.state.loading}
                           />
@@ -48,7 +69,7 @@ class Destacado extends React.Component {
                         <img 
                         className="logoDestacado"
                         alt=""
-                        src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1588785600/logo_uel9ec.png" 
+                        src={this.state.toque.linkImagen} 
                         ></img>
                     </div>
                 </div>

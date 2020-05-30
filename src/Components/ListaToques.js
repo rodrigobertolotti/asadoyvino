@@ -27,7 +27,7 @@ class ListaToques extends React.Component {
 
     componentDidMount = () => {
         //Departamentos con toques
-        axios.get('https://voyalagua.com/asadoyvino/api/TraerDepartamentosConToques.php')
+        axios.get('https://telonero.com/asadoyvino/api/TraerDepartamentosConToques.php')
         .then((response) => {
             this.setState({
                 listaDepartamentos: response.data.data,
@@ -36,7 +36,7 @@ class ListaToques extends React.Component {
             console.log(response.data.data);
         })
         if (this.state.departamento === "Todos") {
-            axios.get('https://voyalagua.com/asadoyvino/api/TraerToques.php')
+            axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
                     this.setState({
                         toques: response.data.data
@@ -55,7 +55,7 @@ class ListaToques extends React.Component {
 
     cerrarModal = () => {
         if (this.state.departamento === "Todos") {
-            axios.get('https://voyalagua.com/asadoyvino/api/TraerToques.php')
+            axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
                     this.setState({
                         toques: response.data.data,
@@ -63,7 +63,7 @@ class ListaToques extends React.Component {
                     })
                 })
         } else {
-            axios.get('https://voyalagua.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
+            axios.get('https://telonero.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
                 .then((response) => {
                     if (response.length > 0) {
                         this.setState({
@@ -85,14 +85,14 @@ class ListaToques extends React.Component {
     onChangeSelect = (e) => {
         this.setState({ departamento: e.target.value }, function () {
             if (this.state.departamento === "Todos") {
-                axios.get('https://voyalagua.com/asadoyvino/api/TraerToques.php')
+                axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                     .then((response) => {
                         this.setState({
                             toques: response.data.data
                         })
                     })
             } else {
-                axios.get('https://voyalagua.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
+                axios.get('https://telonero.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
                     .then((response) => {
                         console.log(response);
                         this.setState({
@@ -156,10 +156,10 @@ class ListaToques extends React.Component {
                                 ))
                             }
                         </List>
-                        <Modal isOpen={this.state.openModal} style={customStyles}>
+                        <Modal isOpen={this.state.openModal} ariaHideApp={false}style={customStyles}>
                             <div className="row">
                                 <div className="columna3">
-                                    <p className="titulo">{this.state.toqueSeleccionado.nombre}</p>
+                                    <p className="tituloToque">{this.state.toqueSeleccionado.nombre}</p>
                                 </div>
                                 <div className="columna1">
                                     <div className="alineoDerecha">

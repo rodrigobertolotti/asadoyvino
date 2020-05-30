@@ -1,10 +1,11 @@
 import React from 'react';
 import Map from './Mapa';
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
 import axios from 'axios';
 import { confirmarAsistencia } from '../Redux/AsistentesReducer/AsistentesActions';
 import { connect } from 'react-redux';
-
+import '../Estilos/ModalProximoToque.css';
 class ProximoToque extends React.Component {
 
     constructor(props) {
@@ -25,7 +26,7 @@ class ProximoToque extends React.Component {
     }
 
     sumarAsistente = () => {
-        axios.post('https://voyalagua.com/asadoyvino/api/AgregarAsistente.php', {
+        axios.post('https://telonero.com/asadoyvino/api/AgregarAsistente.php', {
             "id": this.props.toque.id
         })
             .then((response) => {
@@ -55,30 +56,30 @@ class ProximoToque extends React.Component {
         return (
             <div>
             <div className="divAgregar">
-                <table className="tablaCaract">
-                    <tr>
-                        <td className="campoTablaIcono"><i class="fas fa-2x fa-users"></i></td>
-                        <td className="campoTablaTexto"><p className={this.state.estiloContador}>{this.state.cantidadAsistentes}</p></td>
-                        <td className="campoTablaIcono"><i class="fas fa-2x fa-map-marker-alt"></i></td>
-                        <td className="campoTablaTexto"><p className="subtituloChico">{this.props.toque.lugar}</p></td>
-                    </tr>
-                    <tr>
-                        <td className="campoTablaIcono"><i class="fas fa-2x fa-dollar-sign"></i></td>
-                        <td className="campoTablaTexto"><p className="subtitulochico">{this.props.toque.precioEntradas}</p></td>
-                        <td className="campoTablaIcono"><i class="fas fa-2x fa-ticket-alt"></i></td>
-                        <td className="campoTablaTexto"><p className="subtitulochico">{this.props.toque.ventaEntradas}</p></td>
-                    </tr>
+                <table>
+                    <td>
+                        <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}</span></tr>
+                        <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}</strong></span></tr>
+                        <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
+                        <tr><span className="textoCaracteristicas">Puntos de venta: <strong>{this.props.toque.ventaEntradas}</strong></span></tr>
+                    </td>
                 </table>
             </div>
-            <center>
-                <div className="espacio"></div>
-            </center>
             <div className="espacio"></div>
-            <p className="texto">{this.props.toque.descipcion}</p>
-            <div className="row">
+            <div className="rowProximoToque">
+            <img className="flyerToque" alt="" src={this.props.toque.linkImagen}/>
+            <p className="textoDescripcion">{this.props.toque.descipcion}</p>
+            <div className="espacio"></div>
                 <div className="columna1">
-                    {this.state.sume === false && <Button className="botonAsistire" disabled={this.state.sume} variant="contained" color="primary" onClick={this.sumarAsistente}>
-                        <p className="textoBoton">VOY</p>
+                    {this.state.sume === false && 
+                    <Button className="botonAsistire" 
+                    disabled={this.state.sume} 
+                    variant="contained" 
+                    color="primary" 
+                    onClick={this.sumarAsistente}
+                     startIcon={
+                         <Avatar src={'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590786469/lista-de-quehaceres_mmlabw.png'} />}>
+                        <p className="textoBoton"> VOY</p>
                     </Button>}
                     {this.state.sume === true &&
                         <div className="centrado">

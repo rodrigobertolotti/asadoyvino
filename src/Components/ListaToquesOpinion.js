@@ -17,7 +17,7 @@ class ListaToquesOpinion extends React.Component {
     
     
     componentDidMount = () => {
-        axios.get('https://voyalagua.com/asadoyvino/api/TraerToquesFinalizados.php')
+        axios.get('https://telonero.com/asadoyvino/api/TraerToquesFinalizados.php')
         .then((response) => {
             this.setState({
                 toques: response.data.data
@@ -36,7 +36,7 @@ class ListaToquesOpinion extends React.Component {
     }
 
     cerrarModal = () => {
-        axios.get('https://voyalagua.com/asadoyvino/api/TraerToquesFinalizados.php')
+        axios.get('https://telonero.com/asadoyvino/api/TraerToquesFinalizados.php')
         .then((response) => {
             this.setState({
                 toques: response.data.data,
