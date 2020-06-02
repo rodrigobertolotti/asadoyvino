@@ -26,10 +26,11 @@
 }
 
 .divComentarios{
-    height: 200px;
+    height: 300px;
     overflow: auto;
     display: 'block';
     width: 90%;
+    padding-top: 30px;
     padding-bottom:60px;
     margin-bottom: 60px;
 }
@@ -84,11 +85,12 @@
 
 
 .divComentarios{
-    height: 200px;
+    height: 250px;
     overflow: auto;
     display: 'block';
     width: 90%;
-    padding-bottom:60px;
+    padding-bottom:30px;
+    padding-top: 30px;
 }
 
 

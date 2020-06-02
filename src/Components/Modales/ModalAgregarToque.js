@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
-import AgregarToque from './AgregarToque';
-import '../Estilos/ToqueLabelStyle.css';
-import '../Estilos/AgregadoExistosamente.css';
+import AgregarToque from '../AgregarToque';
+import '../../Estilos/ToqueLabelStyle.css';
+import '../../Estilos/AgregadoExistosamente.css';
 
 class ModalAgregarToque extends React.Component {
 

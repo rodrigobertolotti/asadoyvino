@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Estilos/ToqueLabelStyle.css';
-import Comentarios from './Comentarios';
 import axios from 'axios';
 
 class ToqueOpinion extends React.Component {
@@ -48,7 +47,7 @@ class ToqueOpinion extends React.Component {
                         <div>
                             <div>
                                 <div className="row">
-                                    <p className="nombreToque">{this.props.toque.nombre}</p>
+                                    <p className="nombreToque">{this.props.toque.nombre.substring(0,20)}</p>
                                 </div>
                                 <div className="rowUbicacionFecha">
                                     <span style={{marginRight: 5}} className="cantidadAsistentesOpinion">{this.state.cantidadComentarios} COMENTARIOS  / </span> <div className="divEstrellasOpinion"> {mostrarEstrellas}</div>

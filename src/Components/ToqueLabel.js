@@ -36,10 +36,10 @@ export default function ToqueLabel(props) {
     }
 
     return (
-        <div className="labelProximos">
+        <div className="labelProximos" >
             <div className="column4">
                 <div className="row">
-                    <p className="nombreToque">{props.toque.nombre} <img className="iconoCantidadUsuarios" alt="" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590787713/grupo_1_ypbnce.png"></img><span className="cantidadAsistentes">{props.toque.cantidadAsistentes}</span></p>
+                    <p className="nombreToque">{props.toque.nombre.substring(0,20)} <img className="iconoCantidadUsuarios" alt="" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590787713/grupo_1_ypbnce.png"></img><span className="cantidadAsistentes">{props.toque.cantidadAsistentes}</span></p>
                 </div>
                 <div className="row">
                     <p className="fechaHora">{nuevaFecha} - <strong>{props.toque.hora}hs</strong></p>

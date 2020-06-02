@@ -1,5 +1,4 @@
 import React from 'react';
-import Map from './Mapa';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import axios from 'axios';

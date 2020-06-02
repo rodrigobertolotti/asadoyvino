@@ -4,14 +4,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import '../Estilos/Principal.css';
 import Button from '@material-ui/core/Button';
-import ModalAgregarToque from './ModalAgregarToque';
+import ModalAgregarToque from '../Components/Modales/ModalAgregarToque';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import axios from 'axios';
 import '../constantes';
-import ModalProximoToque from './ModalProximoToque.js';
+import ModalProximoToque from '../Components/Modales/ModalProximoToque.js';
 
 class ListaToques extends React.Component {
 
@@ -125,7 +125,7 @@ class ListaToques extends React.Component {
         if (tamanoPantalla < 600) {
             customStyles = {
                 content: {
-                    top: '0%',
+                    top: '10%',
                     left: '40%',
                     right: 'auto',
                     bottom: 'auto',

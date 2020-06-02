@@ -13,6 +13,10 @@
     padding-left: 10px;
 }
 
+.imgMenu{
+    height: 50px;
+    margin-left: 10px;
+}
 .toolbar_logo{
     margin-left: 10px;
 }
@@ -38,8 +42,10 @@
     color:white;
     text-decoration: none;
 }
-
 .spacer{
     flex: 1;
 }
 
+.espacio{
+    height: 15px;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import ToqueLabel from './Components/ToqueLabel';
 import ListaToques from './Components/ListaToques';
 import ListaToquesOpinion from './Components/ListaToquesOpinion';
 import Destacado from './Components/Destacado/Destacado';

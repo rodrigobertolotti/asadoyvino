@@ -27,8 +27,8 @@ li {
 }
 
 .listaToquesDivOpiniones{
-    margin-top: 50px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 60px;
     border-radius: 5px;
     background-color: rgba(255,255,255,0.3);
     padding: 10px;
@@ -56,8 +56,8 @@ li {
 }
 .subtituloChico{
     font-family: 'Cairo', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 600;
 }
 }
 
@@ -72,13 +72,13 @@ li {
     
     .subtitulo{
         font-family: 'Cairo', sans-serif;
-        font-size: 20px;
+        font-size: 14px;
         
     }
 
     .subtituloChico{
         font-family: 'Cairo', sans-serif;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
     }
     .destacadosDiv{
@@ -117,7 +117,7 @@ li {
     
     .listaToquesDivOpiniones{
         margin-top: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 40px;
         border-radius: 10px;
         background-color: rgba(255,255,255,0.3);
         padding: 10px;

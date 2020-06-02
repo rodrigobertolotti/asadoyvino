@@ -10,15 +10,19 @@
     
 }
 
+.espacio{
+    height: 15px;
+}
+
 .elementoTable{
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.5);
     padding-right: 10px;
     border-radius: 5px;
 }
 
 .contador{
     font-family: 'Cairo', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     margin:0px;
     margin-left: 10px;
     font-weight: 700;
