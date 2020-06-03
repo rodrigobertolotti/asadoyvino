@@ -119,7 +119,7 @@ class Estrellas extends React.Component {
             <div className="divOpinar">
                 <center><p className="explicacion">Dejá tu opinion del toque, bandas o la organización. Publica artículos perdidos para que den con su dueño.</p></center>
                 <div class="comentarios">
-                    <TextField variant="outlined" onChange={this.onChangeUsuario} style={{ width: '90%' }} id="standard-basic" label="Nombre" />
+                    <TextField required variant="outlined" onChange={this.onChangeUsuario} style={{ width: '90%' }} id="standard-basic" label="Nombre" />
                     <div className="espacio"></div>
                     <TextField
                      multiline  
@@ -136,9 +136,12 @@ class Estrellas extends React.Component {
                 </Container>
                 <Container style={{ textAlign: 'center', marginTop: '20px', marginBottom: '10px' }}>
                     <div className="espacio"></div>
-                    <Button onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
+                    <Button disabled={this.state.usuario.length===0} onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
                         <p className="textoBoton">AGREGAR</p>
                     </Button>
+                    {this.props.comentarioRealizado===true && 
+                    <center><span style={{color: 'green', fontSize: 14}}>Opinion agregada</span></center>
+                    }
                 </Container>
             </div>
         )

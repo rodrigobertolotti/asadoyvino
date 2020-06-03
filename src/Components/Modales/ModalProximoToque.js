@@ -21,12 +21,12 @@ class ModalProximoToque extends React.Component{
         if (tamanoPantalla < 600) {
             customStyles = {
                 content: {
-                    top: '10%',
+                    top: '0%',
                     left: '40%',
                     right: 'auto',  
-                    bottom: '10%',
+                    bottom: '0%',
                     marginRight: '-50%',
-                    height: '80%',
+                    height: '100%',
                     width: '90%',
                     transform: 'translate(-40%, 0)',
                 },

@@ -74,7 +74,9 @@ class ProximoToque extends React.Component {
             <div className="espacio"></div>
                 <div className="columna1">
                     {this.state.sume === false && 
-                    <Button className="botonAsistire" 
+                    <Button 
+                    style={{marginBottom: 15}}
+                    className="botonAsistire" 
                     disabled={this.state.sume} 
                     variant="contained" 
                     color="primary" 

@@ -23,7 +23,7 @@ class AgregarToque extends React.Component {
     state = {
         nombre: "",
         lugar: "",
-        fecha: "2017-05-24",
+        fecha: "10-10-2010",
         hora: "21:00",
         precioEntradas: "",
         ventaEntradas: "",
@@ -33,14 +33,11 @@ class AgregarToque extends React.Component {
     }
 
     agregarToque = () => {
-        let fechaActual = new Date(this.state.fecha);
-        let fecha = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1) + "-" + fechaActual.getDate();
-        let hora = fechaActual.getHours() + ":" + fechaActual.getMinutes();
         axios.post('https://telonero.com/asadoyvino/api/AgregarToque.php', {
             "nombre": this.state.nombre,
             "lugar": this.state.lugar,
-            "fecha": fecha,
-            "hora": hora,
+            "fecha": this.state.fecha,
+            "hora": this.state.hora,
             "precioEntradas": this.state.precioEntradas,
             "ventaEntradas": this.state.ventaEntradas,
             "descripcion": this.state.descripcion,
@@ -65,9 +62,9 @@ class AgregarToque extends React.Component {
         })
     }
 
-    handleChangeFecha = (date) => (
+    handleChangeFecha = (e) => (
         this.setState({
-            fecha: date
+            fecha: e.target.value
         })
     )
 
@@ -89,9 +86,9 @@ class AgregarToque extends React.Component {
         })
     }
 
-    handleChangeHora = (date) => (
+    handleChangeHora = (e) => (
         this.setState({
-            hora: date
+            hora: e.target.value
         })
     )
 
@@ -118,20 +115,19 @@ class AgregarToque extends React.Component {
                             variant="filled"
                             label="Bandas" />
                         <div className="espacio"></div>
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <KeyboardDatePicker
+                            <TextField
                                 disableToolbar
                                 variant="filled"
                                 format="MM/dd/yyyy"
                                 margin="normal"
-                                id="date-picker-inline"
+                                type="date"
                                 label="Fecha"
-                                onChange={this.handleChangeFecha}
+                                value={this.state.fecha}
+                                onChange={this.handleChangeFecha.bind(this)}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
                             />
-                        </MuiPickersUtilsProvider>
                         <div className="espacio"></div>
                         <TextField
                             onChange={this.handleChangePrecioEntrada}
@@ -163,18 +159,18 @@ class AgregarToque extends React.Component {
                             }}
                         />
                         <div className="espacio"></div>
-                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <KeyboardTimePicker
+                            <TextField
                                 variant="filled"
                                 margin="normal"
                                 id="time-picker"
                                 label="Hora"
+                                type="time"
+                                value={this.state.hora}
                                 onChange={this.handleChangeHora}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change time',
                                 }}
                             />
-                        </MuiPickersUtilsProvider>
                         <div className="espacio"></div>
                         <TextField
                             onChange={this.handleChangeDondeCompro}

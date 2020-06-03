@@ -21,3 +21,10 @@
 .comentario{
     width: 100%;
 }
+
+.fechaComentario{
+    font-family: 'Cairo', sans-serif;
+    font-size: 9px;
+    margin: 0px;
+    margin-top: -3px;
+}

@@ -12,7 +12,7 @@ export default function ListaComentarios(props) {
             <List>
                 {props.opiniones.map((opinion) => (
                     <ListItem>
-                        <Comentario usuario={opinion[0]} comentario={opinion[1]} estrellas={opinion[2]}></Comentario>
+                        <Comentario usuario={opinion[0]} comentario={opinion[1]} estrellas={opinion[2]} fecha={opinion[3]}></Comentario>
                     </ListItem>
                 ))}
             </List>
@@ -29,6 +29,7 @@ function Comentario(props){
     return(
         <div className="comentario">
                     <p className="usuarioComentario">{props.usuario} {mostrarEstrellas}</p>
+        <span className="fechaComentario">{props.fecha}hs</span>
         <p className="comentarioComentario">{props.comentario}</p>
         <Divider style={{width: '100%'}}></Divider>
         </div>

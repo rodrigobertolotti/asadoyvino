@@ -18,7 +18,8 @@ class ModalToqueFinalizado extends React.Component {
         loadingComments: false,
         muestroComentarios: true,
         tabValue: 0, 
-        cantidadComentarios: 0
+        cantidadComentarios: 0,
+        comentarioRealizado: false
     }
 
     componentDidMount() {
@@ -37,6 +38,7 @@ class ModalToqueFinalizado extends React.Component {
                         opinionUsuario.push(response.data.data[i].nombreUsuario);
                         opinionUsuario.push(response.data.data[i].comentario);
                         opinionUsuario.push(response.data.data[i].estrellas);
+                        opinionUsuario.push(response.data.data[i].fecha);
                         listaOpiniones.push(opinionUsuario);
                     }
                     this.setState({
@@ -62,6 +64,7 @@ class ModalToqueFinalizado extends React.Component {
                         opinionUsuario.push(response.data.data[i].nombreUsuario);
                         opinionUsuario.push(response.data.data[i].comentario);
                         opinionUsuario.push(response.data.data[i].estrellas);
+                        opinionUsuario.push(response.data.data[i].fecha);
                         listaOpiniones.push(opinionUsuario);
                     }
                     this.setState({
@@ -94,7 +97,9 @@ class ModalToqueFinalizado extends React.Component {
             "comentario": comentario
         })
             .then(function (response) {
-                console.log("Agregado correctamente");
+                this.setState({
+                    comentarioRealizado: true
+                })
             })
             .catch(function (error) {
                 console.log(error);
@@ -137,12 +142,12 @@ class ModalToqueFinalizado extends React.Component {
         if (tamanoPantalla < 600) {
              customStyles = {
                 content: {
-                    top: '10%%',
+                    top: '5%',
                     left: '40%',
                     right: 'auto',  
-                    bottom: '10%',
+                    bottom: '5%',
                     marginRight: '-50%',
-                    height: '80%',
+                    height: '90%',
                     width: '90%',
                     transform: 'translate(-40%, 0)',
                 },
@@ -179,7 +184,7 @@ class ModalToqueFinalizado extends React.Component {
                 <div className="row">
                     {this.state.muestroComentarios ?
                         <div className="columnToqueOpinion">
-                            <Estrellas agregarToque={this.agregarOpinionToque} idToque={this.props.idToque}></Estrellas>
+                            <Estrellas comentarioRealizado={this.state.comentarioRealizado} agregarToque={this.agregarOpinionToque} idToque={this.props.idToque}></Estrellas>
                         </div>
                         :
                         <div className="columnToqueOpinion">
