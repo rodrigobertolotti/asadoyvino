@@ -27,13 +27,13 @@ class ListaToques extends React.Component {
     componentDidMount = () => {
         //Departamentos con toques
         axios.get('https://telonero.com/asadoyvino/api/TraerDepartamentosConToques.php')
-        .then((response) => {
-            this.setState({
-                listaDepartamentos: response.data.data,
-                openModal: false
+            .then((response) => {
+                this.setState({
+                    listaDepartamentos: response.data.data,
+                    openModal: false
+                })
+                console.log(response.data.data);
             })
-            console.log(response.data.data);
-        })
         if (this.state.departamento === "Todos") {
             axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
@@ -44,7 +44,6 @@ class ListaToques extends React.Component {
         }
     }
     detallesRecital = (toque) => {
-        console.log(toque);
         this.setState({
             openModal: true,
             toqueSeleccionado: toque
@@ -135,26 +134,38 @@ class ListaToques extends React.Component {
                 },
             }
         }
+        const tamanoToques = ["Bar/Restaurante", "Solista", "Toque de banda", "Festival"];
+
         return (
             <>
                 <div className="listaToquesDiv">
                     <center><p className="titulo">CRONOGRAMA</p></center>
+                    <center><span className="textoFiltrar">BUSCAR TOQUES</span></center>
                     <div className="select">
-                        <FormControl variant="filled" className="selectDepartamento">
+                        <FormControl variant="filled" className="selectDepartamento" style={{margin: 5}}>
                             <InputLabel className="selectDepartamento">Departamento</InputLabel>
                             <Select onChange={this.onChangeSelect}>
                                 <MenuItem value="Todos">Todos</MenuItem>
                                 {this.state.listaDepartamentos.map((departamento) => (
-                                     <MenuItem value={departamento.departamento}>{departamento.departamento}</MenuItem>
+                                    <MenuItem value={departamento.departamento}>{departamento.departamento}</MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <FormControl variant="filled" className="selectDepartamento" style={{margin: 5}}>
+                            <InputLabel className="selectDepartamento">Tipo de toque</InputLabel>
+                            <Select>
+                                <MenuItem value="Todos">Todos</MenuItem>
+                                {tamanoToques.map((opcion) => (
+                                    <MenuItem value={opcion}>{opcion}</MenuItem>
                                 ))}
                             </Select>
                         </FormControl>
                     </div>
-                    <ModalProximoToque 
+                    <ModalProximoToque
                         openModal={this.state.openModal}
                         toqueSeleccionado={this.state.toqueSeleccionado}
                         cerrarModal={() => this.cerrarModal()}
-                        ></ModalProximoToque>
+                    ></ModalProximoToque>
                     <div className="listContainer">
                         <List>
                             {
@@ -172,7 +183,7 @@ class ListaToques extends React.Component {
                             <p className="textoBoton">AGREGAR</p>
                         </Button>
                     </div>
-                    <ModalAgregarToque 
+                    <ModalAgregarToque
                         openModal={this.state.modalAgregarToque}
                         cerrarModal={() => this.cerrarAgregarToque()}
                         estilo={customStyles}></ModalAgregarToque>
