@@ -10,7 +10,7 @@ class ToqueOpinion extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://telonero.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + this.props.toque.id + "")
+        axios.get('https://desafinando.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + this.props.toque.id + "")
             .then((response) => {
                 console.log("cantidad comentarios: " + response.data.data.length);
                 let cantidadComentarios = response.data.data.length;
@@ -27,7 +27,7 @@ class ToqueOpinion extends React.Component {
             .catch((error) => {
                 console.log(error);
             })
-        axios.get('https://telonero.com/asadoyvino/api/CantidadEstrellasToque.php?idToque=' + this.props.toque.id + "")
+        axios.get('https://desafinando.com/asadoyvino/api/CantidadEstrellasToque.php?idToque=' + this.props.toque.id + "")
             .then((response) => {
                 this.setState({
                     estrellas: response.data,
@@ -41,7 +41,7 @@ class ToqueOpinion extends React.Component {
                 <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png"></img>);
         }
         return (
-            <div className="label">
+            <div className="labelFinalizado">
                 <div className="row">
                     <div className="columna">
                         <div>

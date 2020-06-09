@@ -16,7 +16,7 @@ class ListaToquesOpinion extends React.Component {
 
 
     componentDidMount = () => {
-        axios.get('https://telonero.com/asadoyvino/api/TraerToquesFinalizados.php')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerToquesFinalizados.php')
             .then((response) => {
                 this.setState({
                     toques: response.data.data
@@ -38,7 +38,7 @@ class ListaToquesOpinion extends React.Component {
         this.setState({
             openModal: false
         })
-        axios.get('https://telonero.com/asadoyvino/api/TraerToquesFinalizados.php')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerToquesFinalizados.php')
             .then((response) => {
                 this.setState({
                     toques: response.data.data,
@@ -53,7 +53,7 @@ class ListaToquesOpinion extends React.Component {
         return (
             <>
                 <div className="listaToquesDivOpiniones">
-                    <center><p className="titulo">OPINIONES</p></center>
+                <span className="textoFiltrar">ULTIMAS OPINIONES</span>
                     <div className="listContainer">
                         <List>
                             {

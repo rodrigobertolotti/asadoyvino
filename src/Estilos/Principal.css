@@ -20,7 +20,7 @@ li {
     margin-top: 50px;
     margin-bottom: 100px;
     border-radius:5px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.1);
     width: 80%;
     padding: 10px;
     padding-top:15px;
@@ -30,7 +30,7 @@ li {
     margin-top: 20px;
     margin-bottom: 60px;
     border-radius: 5px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.1);
     padding: 10px;
     padding-top: 15px;
     width: 80%;
@@ -39,7 +39,7 @@ li {
 .destacadosDiv{
     margin-top: 50px;
     border-radius: 5px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.5);
     padding: 10px;
     padding-top: 15px;
     width: 80%;
@@ -63,6 +63,8 @@ li {
 .textoFiltrar{
     font-family: 'Cairo', sans-serif;
     font-size: 16px;
+    margin-left: 20px;
+    margin-bottom: 20px;
     font-weight: 700;
     color: whitesmoke;
 }
@@ -143,8 +145,11 @@ li {
 
     .textoFiltrar{
         font-family: 'Cairo', sans-serif;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 700;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
         color: whitesmoke;
     }
 }

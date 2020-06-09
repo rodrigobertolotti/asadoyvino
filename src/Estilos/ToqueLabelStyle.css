@@ -1,3 +1,19 @@
+.ReactModal__Overlay {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 500ms ease-in-out;
+  }
+  
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
 @media only screen and (min-width: 600px){
 
   
@@ -132,25 +148,45 @@
     height: 90px;
     width: 100%;
     margin: 0px;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.8);
 }
 
+.labelProximos:hover{
+    display: flex;
+    flex-direction: row;
+    border-radius: 2px;
+    height: 90px;
+    width: 100%;
+    margin: 0px;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
 .iconoLugar{
     margin-right: 5px;
 }
-.label{
+.labelFinalizado{
     border-radius: 2px;
     height: 70px;
     width: 100%;
     margin: 0px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.labelFinalizado:hover{
+    border-radius: 2px;
+    height: 70px;
+    width: 100%;
+    margin: 0px;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 }
 
 .nombreToque{
     font-family: 'Cairo', sans-serif;
     margin: 0px;
     margin-top: 5px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     margin-left: 15px;
     text-transform: uppercase;
 }
@@ -308,6 +344,7 @@
     margin-bottom: -5px;
     margin-left: 3px;
 }
+
 }
 
 @media only screen and (max-width: 600px){
@@ -488,7 +525,7 @@
         height: 80px;
         width: 100%;
         margin: 0px;
-        background: rgba(255,255,255,1);
+        background: rgba(255,255,255,0.8);
     }
 
     .nombreToque{

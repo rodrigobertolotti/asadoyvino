@@ -2,7 +2,7 @@ import React from 'react';
 import Countdown from './Countdown';
 import axios from 'axios';
 import './Destacado.css';
-import ClipLoader from "react-spinners/ClipLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 class Destacado extends React.Component {
 
@@ -16,7 +16,7 @@ class Destacado extends React.Component {
         this.setState({
             loading: true
         })
-        axios.get('https://telonero.com/asadoyvino/api/TraerToqueConMasAsistentes.php')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerToqueConMasAsistentes.php')
             .then(response => {
                 let fecha = response.data.data[0].fecha;
                 let fechaSplitArray = fecha.split("-");
@@ -52,8 +52,8 @@ class Destacado extends React.Component {
                     {this.state.loading === true ?
                         <div className="columna3">
                             <center>
-                                <ClipLoader
-                                    size={50}
+                                <BeatLoader
+                                    size={30}
                                     color={"#123abc"}
                                     loading={this.state.loading}
                                 />
@@ -62,7 +62,7 @@ class Destacado extends React.Component {
                         :
                         <>
                             <div className="columna3">
-                           <center><p className="nombreToquePrincipal">{this.state.toque.nombre}</p></center>
+                           <p className="nombreToquePrincipal">{this.state.toque.nombre}</p>
                                 <Countdown fecha={this.state.toque.fecha}></Countdown>
                             </div>
                         </>

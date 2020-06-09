@@ -21,12 +21,14 @@ class ListaToques extends React.Component {
         modalAgregarToque: false,
         toques: [],
         departamento: "Todos",
-        listaDepartamentos: []
+        listaDepartamentos: [],
+        textoDeptosSelect: "Departamento",
+        textoTamanoSelect: "Tipo de toque",
     }
 
     componentDidMount = () => {
         //Departamentos con toques
-        axios.get('https://telonero.com/asadoyvino/api/TraerDepartamentosConToques.php')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerDepartamentosConToques.php')
             .then((response) => {
                 this.setState({
                     listaDepartamentos: response.data.data,
@@ -35,7 +37,7 @@ class ListaToques extends React.Component {
                 console.log(response.data.data);
             })
         if (this.state.departamento === "Todos") {
-            axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
+            axios.get('https://desafinando.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
                     this.setState({
                         toques: response.data.data
@@ -46,24 +48,28 @@ class ListaToques extends React.Component {
     detallesRecital = (toque) => {
         this.setState({
             openModal: true,
-            toqueSeleccionado: toque
+            toqueSeleccionado: toque,
+            textoDeptosSelect: "",
+            textoTamanoSelect: ""
         })
         document.body.style.overflow = 'hidden';
     }
 
     cerrarModal = () => {
         this.setState({
-            openModal: false
+            openModal: false,
+            textoDeptosSelect: "Departamento",
+            textoTamanoSelect: "Tipo de toque"
         })
         if (this.state.departamento === "Todos") {
-            axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
+            axios.get('https://desafinando.com/asadoyvino/api/TraerToques.php')
                 .then((response) => {
                     this.setState({
                         toques: response.data.data,
                     })
                 })
         } else {
-            axios.get('https://telonero.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
+            axios.get('https://desafinando.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
                 .then((response) => {
                     if (response.length > 0) {
                         this.setState({
@@ -77,27 +83,34 @@ class ListaToques extends React.Component {
 
     abrirAgregarToque = () => {
         this.setState({
-            modalAgregarToque: true
+            modalAgregarToque: true,
+            textoDeptosSelect: "",
+            textoTamanoSelect: ""
         })
+        document.body.style.overflow = 'hidden';
+
     }
 
     cerrarAgregarToque = () => {
         this.setState({
-            modalAgregarToque: false
+            modalAgregarToque: false,
+            textoDeptosSelect: "Departamento"
         })
+        document.body.style.overflow = '';
+
     }
 
     onChangeSelect = (e) => {
         this.setState({ departamento: e.target.value }, function () {
             if (this.state.departamento === "Todos") {
-                axios.get('https://telonero.com/asadoyvino/api/TraerToques.php')
+                axios.get('https://desafinando.com/asadoyvino/api/TraerToques.php')
                     .then((response) => {
                         this.setState({
                             toques: response.data.data
                         })
                     })
             } else {
-                axios.get('https://telonero.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
+                axios.get('https://desafinando.com/asadoyvino/api/TraerToquesDepartamento.php?departamento=' + this.state.departamento)
                     .then((response) => {
                         console.log(response);
                         this.setState({
@@ -108,14 +121,19 @@ class ListaToques extends React.Component {
         })
     }
 
+    focoToque = (e) => {
+        e.preventDefault();
+        alert("Mouse ARRIBA");
+    }
     render() {
         const tamanoPantalla = window.screen.width;
         let customStyles = {
             content: {
-                top: '15%',
+                top: '10%',
                 left: '50%',
                 right: 'auto',
-                bottom: 'auto',
+                bottom: '10%',
+                height: '80%',
                 marginRight: '-50%',
                 width: '30%',
                 transform: 'translate(-40%, -10%)',
@@ -124,10 +142,11 @@ class ListaToques extends React.Component {
         if (tamanoPantalla < 600) {
             customStyles = {
                 content: {
-                    top: '10%',
+                    top: '0%',
                     left: '40%',
                     right: 'auto',
-                    bottom: 'auto',
+                    bottom: '0%',
+                    height: '100%',
                     marginRight: '-50%',
                     width: '80%',
                     transform: 'translate(-40%, 0)',
@@ -139,11 +158,10 @@ class ListaToques extends React.Component {
         return (
             <>
                 <div className="listaToquesDiv">
-                    <center><p className="titulo">CRONOGRAMA</p></center>
-                    <center><span className="textoFiltrar">BUSCAR TOQUES</span></center>
+                    <span className="textoFiltrar">BUSCAR TOQUES</span>
                     <div className="select">
-                        <FormControl variant="filled" className="selectDepartamento" style={{margin: 5}}>
-                            <InputLabel className="selectDepartamento">Departamento</InputLabel>
+                        <FormControl variant="filled" className="selectDepartamento" style={{ margin: 5, backgroundColor: 'white'  }}>
+                            <InputLabel className="selectDepartamento" style={{fontSize: 14}}>{this.state.textoDeptosSelect}</InputLabel>
                             <Select onChange={this.onChangeSelect}>
                                 <MenuItem value="Todos">Todos</MenuItem>
                                 {this.state.listaDepartamentos.map((departamento) => (
@@ -151,8 +169,8 @@ class ListaToques extends React.Component {
                                 ))}
                             </Select>
                         </FormControl>
-                        <FormControl variant="filled" className="selectDepartamento" style={{margin: 5}}>
-                            <InputLabel className="selectDepartamento">Tipo de toque</InputLabel>
+                        <FormControl variant="filled" className="selectDepartamento" style={{ margin: 5, backgroundColor: 'white' }}>
+                            <InputLabel className="selectDepartamento" style={{fontSize: 14}}>{this.state.textoTamanoSelect}</InputLabel>
                             <Select>
                                 <MenuItem value="Todos">Todos</MenuItem>
                                 {tamanoToques.map((opcion) => (
@@ -171,8 +189,8 @@ class ListaToques extends React.Component {
                             {
                                 this.state.toques.map((toque) => (
                                     <ListItem onClick={() => this.detallesRecital(toque)}>
-                                        <ToqueLabel toque={toque}>
-                                        </ToqueLabel>
+                                            <ToqueLabel toque={toque}>
+                                            </ToqueLabel>
                                     </ListItem>
                                 ))
                             }

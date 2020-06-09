@@ -1,13 +1,13 @@
 @media only screen and (min-width: 600px){
 .nombreToquePrincipal{
     font-family: 'Cairo', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     margin:0px;
-    font-weight: 600;
+    font-weight: 700;
     margin-left: 10px;
         margin-top: -15px;
         margin-bottom: 5px;
-    
+    text-transform: uppercase;
 }
 
 .espacio{
@@ -122,16 +122,16 @@
 
     .elementoTable{
         background-color: rgba(0,0,0,0.5);
-        padding-right: 10px;
+        padding-right: 8px;
         border-radius: 5px;
     }
 
 
     .contador{
         font-family: 'Cairo', sans-serif;
-        font-size: 22px;
+        font-size: 18px;
         margin:0px;
-        margin-left: 10px;
+        margin-left: 8px;
         font-weight: 700;
         color: white;
     }
@@ -148,12 +148,13 @@
     }
     .nombreToquePrincipal{
         font-family: 'Cairo', sans-serif;
-        font-size: 18px;
-        margin:0px;
-        font-weight: 600;
-        margin-left: 10px;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 700;
+    margin-left: 15px;
         margin-top: -15px;
         margin-bottom: 5px;
+    text-transform: uppercase;
     }
     
     .subtituloBanda{
@@ -198,10 +199,10 @@
     }
     
     .columna3{
-        flex: 3;
+        flex: 1;
     }
     .columna1{
-        flex: 2;
+        flex: 1;
         align-items: center;
         justify-content: center;
     }

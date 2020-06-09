@@ -32,7 +32,7 @@ class AgregarToque extends React.Component {
     }
 
     agregarToque = () => {
-        axios.post('https://telonero.com/asadoyvino/api/AgregarToque.php', {
+        axios.post('https://desafinando.com/asadoyvino/api/AgregarToque.php', {
             "nombre": this.state.nombre,
             "lugar": this.state.lugar,
             "fecha": this.state.fecha,
@@ -124,11 +124,10 @@ class AgregarToque extends React.Component {
                     <div className="columnAgregar">
                         <TextField
                             onChange={this.handleChangeNombre}
-                            style={{ width: '90%' }}
-                            variant="filled"
+                            style={{ fontSize: 12, width: '90%' }}
                             label="Bandas" />
                         <div className="espacio"></div>
-                        <FormControl variant="filled" style={{ width: '90%' }}>
+                        <FormControl  style={{ fontSize: 12,width: '90%' }}>
                         <InputLabel>Departamento</InputLabel>
                             <Select onChange={this.onChangeSelect}>
                                 <MenuItem value="Montevideo">Montevideo</MenuItem>
@@ -140,12 +139,10 @@ class AgregarToque extends React.Component {
                         <div className="espacio"></div>
                         <TextField
                             disableToolbar
-                            variant="filled"
-                            format="MM/dd/yyyy"
                             margin="normal"
                             type="date"
                             label="Fecha"
-                            style={{ width: '90%' }}
+                            style={{ fontSize: 12,width: '90%' }}
                             value={this.state.fecha}
                             onChange={this.handleChangeFecha.bind(this)}
                             KeyboardButtonProps={{
@@ -155,8 +152,7 @@ class AgregarToque extends React.Component {
                         <div className="espacio"></div>
                         <TextField
                             onChange={this.handleChangePrecioEntrada}
-                            style={{ width: '90%' }}
-                            variant="filled"
+                            style={{ fontSize: 12,width: '90%' }}
                             label="Precio entradas"
                             inputProps={{
                                 maxLength: 4,
@@ -170,9 +166,8 @@ class AgregarToque extends React.Component {
                     <div className="columnAgregar">
                         <TextField
                             onChange={this.handleChangeLugar}
-                            style={{ width: '90%' }}
+                            style={{ fontSize: 12,width: '90%' }}
                             label="Lugar"
-                            variant="filled"
                             inputProps={{
                                 maxLength: 30,
                                 startAdornment: (
@@ -184,8 +179,7 @@ class AgregarToque extends React.Component {
                         />
                         <div className="espacio"></div>
                         <FormControl
-                            variant="filled"
-                            style={{ width: '90%' }}>
+                            style={{ fontSize: 12,width: '90%' }}>
                             <InputLabel>Tipo de toque</InputLabel>
                             <Select
                                 label="Tipo de toque"
@@ -197,9 +191,8 @@ class AgregarToque extends React.Component {
                         </FormControl>
                         <div className="espacio"></div>
                         <TextField
-                            variant="filled"
                             margin="normal"
-                            style={{ width: '90%' }}
+                            style={{ fontSize: 12,width: '90%' }}
                             id="time-picker"
                             label="Hora"
                             type="time"
@@ -212,8 +205,7 @@ class AgregarToque extends React.Component {
                         <div className="espacio"></div>
                         <TextField
                             onChange={this.handleChangeDondeCompro}
-                            style={{ width: '90%' }}
-                            variant="filled"
+                            style={{ fontSize: 12,width: '90%' }}
                             inputProps={{
                                 maxLength: 30,
                                 startAdornment: (
@@ -227,8 +219,7 @@ class AgregarToque extends React.Component {
                 </div>
                 <div className="espacio"></div>
                 <TextField
-                    style={{ width: '95%' }}
-                    variant="filled"
+                    style={{ fontSize: 12,width: '95%' }}
                     multiline
                     rows={2}
                     onChange={this.handleChangeDescripcion}

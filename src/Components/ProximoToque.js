@@ -5,6 +5,8 @@ import axios from 'axios';
 import { confirmarAsistencia } from '../Redux/AsistentesReducer/AsistentesActions';
 import { connect } from 'react-redux';
 import '../Estilos/ModalProximoToque.css';
+import BeatLoader from "react-spinners/BeatLoader";
+
 class ProximoToque extends React.Component {
 
     constructor(props) {
@@ -19,22 +21,26 @@ class ProximoToque extends React.Component {
         this.state = {
             cantidadAsistentes: cantidadTotal,
             estiloContador: "subtitulochico",
-            sume: verificar
+            sume: false,
+            loadingSumar: false
         }
 
     }
 
     sumarAsistente = () => {
-        axios.post('https://telonero.com/asadoyvino/api/AgregarAsistente.php', {
+        this.setState({
+            loadingSumar: true,
+        })
+        axios.post('https://desafinando.com/asadoyvino/api/AgregarAsistente.php', {
             "id": this.props.toque.id
         })
             .then((response) => {
-                console.log("agregado");
                 this.setState((prevState) => {
                     return {
                         cantidadAsistentes: parseInt(prevState.cantidadAsistentes) + 1,
                         estiloContador: "subtituloChicoSume",
-                        sume: !prevState.sume
+                        sume: true,
+                        loadingSumar: false
                     }
                 })
             })
@@ -50,48 +56,65 @@ class ProximoToque extends React.Component {
         }
         return false;
     }
+
     render() {
         let fecha = this.props.toque.fecha;
         let fechaSplitArray = fecha.split("-");
         let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
         return (
             <div>
-            <div className="divAgregar">
-                <table>
-                    <td>
-                        <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}</span></tr>
-                        <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{nuevaFecha} - {this.props.toque.hora}</strong></span></tr>
-                        <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}, {this.props.toque.departamento}</strong></span></tr>
-                        <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
-                        <tr><span className="textoCaracteristicas">Puntos de venta: <strong>{this.props.toque.ventaEntradas}</strong></span></tr>
-                    </td>
-                </table>
-            </div>
-            <div className="espacio"></div>
-            <div className="rowProximoToque">
-            <img className="flyerToque" alt="" src={this.props.toque.linkImagen}/>
-            <p className="textoDescripcion">{this.props.toque.descipcion}</p>
-            <div className="espacio"></div>
-                <div className="columna1">
-                    {this.state.sume === false && 
-                    <Button 
-                    style={{marginBottom: 15}}
-                    className="botonAsistire" 
-                    disabled={this.state.sume} 
-                    variant="contained" 
-                    color="primary" 
-                    onClick={this.sumarAsistente}
-                     startIcon={
-                         <Avatar src={'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590786469/lista-de-quehaceres_mmlabw.png'} />}>
-                        <p className="textoBoton"> VOY</p>
-                    </Button>}
-                    {this.state.sume === true &&
-                        <div className="centrado">
-                            <p className="subtituloChicoSume">ASISTIRAS  </p>
-                            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590867312/rock_i8ls6v.png"></img>
-                        </div>}
+                <div className="divAgregar">
+                    <table>
+                        <td>
+                            <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}</span></tr>
+                            <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{nuevaFecha} - {this.props.toque.hora}</strong></span></tr>
+                            <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}, {this.props.toque.departamento}</strong></span></tr>
+                            <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
+                            <tr><span className="textoCaracteristicas">Puntos de venta: <strong>{this.props.toque.ventaEntradas}</strong></span></tr>
+                        </td>
+                    </table>
                 </div>
-            </div>
+                <div className="espacio"></div>
+                <div className="rowProximoToque">
+                    <img className="flyerToque" alt="" src={this.props.toque.linkImagen} />
+                    <p className="textoDescripcion">{this.props.toque.descipcion}</p>
+                    <div className="espacio"></div>
+                    <div className="columna1">
+                        {this.state.loadingSumar === false &&
+                            (
+                                this.state.sume === false ?
+                                    <Button
+                                        style={{ marginBottom: 15 }}
+                                        className="botonAsistire"
+                                        disabled={this.state.sume}
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.sumarAsistente}
+                                        startIcon={
+                                            <Avatar src={'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590786469/lista-de-quehaceres_mmlabw.png'} />}>
+                                        <p className="textoBoton"> VOY</p>
+                                    </Button>
+                                    :
+                                    (
+                                        <div className="centrado">
+                                            <p className="subtituloChicoSume">ASISTIRAS</p>
+                                            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590867312/rock_i8ls6v.png"></img>
+                                        </div>
+                                    )
+                            )
+                        }
+                        {
+                            this.state.loadingSumar === true &&
+                            <div className="centrado">
+                                <BeatLoader
+                                    size={30}
+                                    color={"#123abc"}
+                                />
+                            </div>
+                        }
+                    </div>
+                    <div className="espacio"></div>
+                </div>
             </div >
 
         )

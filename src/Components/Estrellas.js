@@ -6,25 +6,27 @@ import '../Estilos/Estrellas.css';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import { guardarOpinionEstrellas } from '../Redux/OpinionesReducer/OpinionesActions';
+import BeatLoader from "react-spinners/BeatLoader";
 
 class Estrellas extends React.Component {
 
     state = {
         voto: false,
         estiloEstrellas: ['https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-         'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
+            'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+            'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+            'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+            'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
         cantidad: 0,
         comentario: "",
         usuario: "",
-        actualizo: false
-    } 
+        actualizo: false,
+        loading: this.props.loading
+    }
 
-    componentDidMount(){
+    componentDidMount() {
         let estrellasNuevas = [];
-        const cantEstrellas= this.encontrarEstrellas();
+        const cantEstrellas = this.encontrarEstrellas();
         for (var i = 0; i < cantEstrellas; i++) {
             estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png");
         }
@@ -32,7 +34,9 @@ class Estrellas extends React.Component {
             estrellasNuevas.push("https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png");
         }
         this.setState({
-            estiloEstrellas: estrellasNuevas
+            estiloEstrellas: estrellasNuevas,
+            loading: this.props.loading,
+            comentarioRealizado: false
         })
     }
 
@@ -54,10 +58,10 @@ class Estrellas extends React.Component {
         if (this.state.voto === false) {
             this.setState({
                 estiloEstrellas: ['https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
-                'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
+                    'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                    'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                    'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png',
+                    'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590448224/rock-and-roll_1_owavnr.png'],
             })
         }
     }
@@ -65,8 +69,9 @@ class Estrellas extends React.Component {
     votar = (e) => {
         this.setState({
             voto: true,
-            cantidad: parseInt(e.target.id) +1
+            cantidad: parseInt(e.target.id) + 1,
         })
+
     }
 
     onChangeComentario = (e) => {
@@ -87,22 +92,26 @@ class Estrellas extends React.Component {
             "cantidad": this.state.cantidad
         }
         this.props.asignarPuntaje(puntuacion);
+        this.setState({
+            comentario: "",
+            usuario: ""
+        })
     }
 
     encontrarEstrellas = () => {
-        for (var i=0; i<this.props.cantidadEstrellas.length; i++){
-            if (this.props.cantidadEstrellas[i].id===this.props.idToque){
+        for (var i = 0; i < this.props.cantidadEstrellas.length; i++) {
+            if (this.props.cantidadEstrellas[i].id === this.props.idToque) {
                 return this.props.cantidadEstrellas[i].cantidad;
             }
         }
         return 0;
-
     }
 
-    
+
 
     render() {
         const estrellas = [];
+        let muestroAgregado= this.props.comentarioRealizado === true && this.props.loading===false;
         for (var i = 0; i < 5; i++) {
             estrellas.push(
                 <img
@@ -112,22 +121,31 @@ class Estrellas extends React.Component {
                     onMouseOut={this.limpiarSeleccion}
                     onClick={this.votar}
                     className="iconoRockGrande"
-                    src={this.state.estiloEstrellas[i]}/>
+                    src={this.state.estiloEstrellas[i]} />
             )
         }
+
         return (
             <div className="divOpinar">
                 <center><p className="explicacion">Dejá tu opinion del toque, bandas o la organización. Publica artículos perdidos para que den con su dueño.</p></center>
                 <div class="comentarios">
-                    <TextField required variant="outlined" onChange={this.onChangeUsuario} style={{ width: '90%' }} id="standard-basic" label="Nombre" />
+                    <TextField
+                        required
+                        variant="outlined"
+                        value={this.state.usuario}
+                        onChange={this.onChangeUsuario}
+                        style={{ width: '90%' }}
+                        id="standard-basic"
+                        label="Nombre" />
                     <div className="espacio"></div>
                     <TextField
-                     multiline  
-                     rows={2}
-                     variant="outlined"
-                     onChange={this.onChangeComentario} 
-                     style={{ width: '90%' }} 
-                     label="Comentarios" />
+                        multiline
+                        rows={2}
+                        value={this.state.comentario}
+                        variant="outlined"
+                        onChange={this.onChangeComentario}
+                        style={{ width: '90%' }}
+                        label="Comentarios" />
                 </div>
                 <Container style={{ textAlign: 'center', marginTop: 25 }}>
                     <div class="estrellas">
@@ -136,11 +154,22 @@ class Estrellas extends React.Component {
                 </Container>
                 <Container style={{ textAlign: 'center', marginTop: '20px', marginBottom: '10px' }}>
                     <div className="espacio"></div>
-                    <Button disabled={this.state.usuario.length===0} onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
-                        <p className="textoBoton">AGREGAR</p>
-                    </Button>
-                    {this.props.comentarioRealizado===true && 
-                    <center><span style={{color: 'green', fontSize: 14}}>Opinion agregada</span></center>
+                    {this.props.loading === true ?
+                        <div>
+                            <div className="centrado">
+                                <BeatLoader
+                                    size={30}
+                                    color={"#123abc"}
+                                />
+                            </div>
+                        </div>
+                        :
+                        <Button disabled={this.state.usuario.length === 0} onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
+                            <p className="textoBoton">AGREGAR</p>
+                        </Button>
+                    }
+                    {muestroAgregado === true &&
+                        <center><span className="agregadoExito">Opinion agregada exitosamente</span></center>
                     }
                 </Container>
             </div>
@@ -149,11 +178,11 @@ class Estrellas extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-        cantidadEstrellas: state.opiniones.cantidadEstrellas
+    cantidadEstrellas: state.opiniones.cantidadEstrellas
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    asignarPuntaje: (cantidad) => dispatch(guardarOpinionEstrellas(cantidad)) 
+    asignarPuntaje: (cantidad) => dispatch(guardarOpinionEstrellas(cantidad))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Estrellas);

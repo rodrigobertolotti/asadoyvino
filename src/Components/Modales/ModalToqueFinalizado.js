@@ -19,7 +19,8 @@ class ModalToqueFinalizado extends React.Component {
         muestroComentarios: true,
         tabValue: 0, 
         cantidadComentarios: 0,
-        comentarioRealizado: false
+        comentarioRealizado: false,
+        loadingAgregarComentario: false
     }
 
     componentDidMount() {
@@ -28,7 +29,7 @@ class ModalToqueFinalizado extends React.Component {
             loadingComments: true
         })
         let idToque = this.props.toque.id;
-        axios.get('https://telonero.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + idToque + '')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + idToque + '')
             .then((response) => {
                 try {
                     let cantidadComentarios = response.data.data.length;
@@ -54,7 +55,7 @@ class ModalToqueFinalizado extends React.Component {
 
     componentDidUpdate() {
         let idToque = this.props.toque.id;
-        axios.get('https://telonero.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + idToque + '')
+        axios.get('https://desafinando.com/asadoyvino/api/TraerComentariosDeToque.php?idToque=' + idToque + '')
             .then((response) => {
                 try {
                     let cantidadComentarios = response.data.data.length;
@@ -90,19 +91,23 @@ class ModalToqueFinalizado extends React.Component {
     }
 
     agregarOpinionToque = (usuario, cantidad, comentario) => {
-        axios.post('https://telonero.com/asadoyvino/api/AgregarOpinionToque.php', {
+        this.setState({
+            loadingAgregarComentario: true
+        })
+        axios.post('https://desafinando.com/asadoyvino/api/AgregarOpinionToque.php', {
             "numeroToque": this.props.toque.id,
             "nombreUsuario": usuario,
             "estrellas": cantidad,
             "comentario": comentario
         })
-            .then(function (response) {
+            .then(() => {
                 this.setState({
-                    comentarioRealizado: true
+                    comentarioRealizado: true,
+                    loadingAgregarComentario: false
                 })
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error + "error");
             });
 
         //agrego comentario a estado
@@ -117,8 +122,10 @@ class ModalToqueFinalizado extends React.Component {
             invertido.push(comentariosActual[i])
         }
         this.setState({
-            opiniones: invertido
+            opiniones: invertido, 
+            comentarioRealizado: true,
         })
+
 
 
 
@@ -184,7 +191,12 @@ class ModalToqueFinalizado extends React.Component {
                 <div className="row">
                     {this.state.muestroComentarios ?
                         <div className="columnToqueOpinion">
-                            <Estrellas comentarioRealizado={this.state.comentarioRealizado} agregarToque={this.agregarOpinionToque} idToque={this.props.idToque}></Estrellas>
+                            <Estrellas 
+                            comentarioRealizado={this.state.comentarioRealizado} 
+                            agregarToque={this.agregarOpinionToque} 
+                            idToque={this.props.idToque}
+                            loading={this.state.loadingAgregarComentario}
+                            ></Estrellas>
                         </div>
                         :
                         <div className="columnToqueOpinion">

@@ -52,6 +52,13 @@
     font-weight: 600;
     padding: 15px;
 }
+
+.agregadoExito{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: green;
+}
 }
 
 @media only screen and (max-width: 600px){
@@ -85,11 +92,12 @@
 
 
 .divComentarios{
-    height: 250px;
+    height: 350px;
     overflow: auto;
     display: 'block';
     width: 90%;
     padding-bottom:30px;
+    margin-top: 20px;
     padding-top: 30px;
 }
 
@@ -114,5 +122,12 @@
     font-size: 12px;
     font-weight: 600;
     padding: 10px;
+}
+
+.agregadoExito{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: green;
 }
 }
