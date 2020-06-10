@@ -1,0 +1,32 @@
+.containerAgregarOpinion{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+    text-align: center;
+}
+
+.tituloSeccion{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.tablaEstilosComunidad{
+    width: 60%;
+}
+
+.deshabilitado{
+    opacity: 0.3;
+    width: 40px;
+    margin: 10px;
+}
+
+.habilitado{
+    opacity: 1;
+    width: 40px;
+    margin: 10px;
+}
