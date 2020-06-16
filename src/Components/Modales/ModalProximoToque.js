@@ -48,9 +48,9 @@ class ModalProximoToque extends React.Component {
                     top: '0%',
                     left: '40%',
                     right: 'auto',
-                    bottom: '0%',
+                    bottom: '5%',
                     marginRight: '-50%',
-                    height: '100%',
+                    height: '95%',
                     width: '90%',
                     transform: 'translate(-40%, 0)',
                 },
@@ -61,6 +61,8 @@ class ModalProximoToque extends React.Component {
                 <div className="row" style={{ paddingBottom: 20, borderBottom: "thin solid" }}>
                     <div className="columna3">
                         <p className="subtituloChico">{this.props.toqueSeleccionado.nombre}</p>
+                        <img className="iconoSocial"
+                         src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592188084/instagram-bosquejado_v9ezxx.png"></img>
                     </div>
                     <div className="columna1">
                         <div className="alineoDerecha">

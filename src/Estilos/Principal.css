@@ -56,8 +56,10 @@ li {
 }
 .subtituloChico{
     font-family: 'Cairo', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0px;
 }
 
 .textoFiltrar{
@@ -88,7 +90,9 @@ li {
     .subtituloChico{
         font-family: 'Cairo', sans-serif;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0px;
     }
     .destacadosDiv{
         border-radius: 5px;

@@ -11,20 +11,33 @@ class ProximoToque extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
         let verificar = this.verificarAsistencia();
         let sumoUno = 0;
         if (verificar === true) {
             sumoUno = 1;
         }
         let cantidadTotal = parseInt(this.props.toque.cantidadAsistentes) + sumoUno;
+        const asiste= this.asistePreviamente();
+        if (asiste==="1"){
+            this.state = {
+                cantidadAsistentes: cantidadTotal,
+                estiloContador: "subtitulochico",
+                sume: true,
+                loadingSumar: false, 
+            }
+        }else{
         this.state = {
             cantidadAsistentes: cantidadTotal,
             estiloContador: "subtitulochico",
             sume: false,
-            loadingSumar: false
+            loadingSumar: false, 
         }
+    }
+    }
 
+    asistePreviamente = () => {
+        const asiste= localStorage.getItem(this.props.toque.id);
+        return asiste;
     }
 
     sumarAsistente = () => {
@@ -46,6 +59,7 @@ class ProximoToque extends React.Component {
             })
             .catch((error) => console.log(error))
         this.props.confirmoAsistencia(this.props.toque.id);
+        localStorage.setItem(this.props.toque.id,1);
     }
 
     verificarAsistencia = () => {
@@ -66,7 +80,9 @@ class ProximoToque extends React.Component {
                 <div className="divAgregar">
                     <table>
                         <td>
-                            <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}</span></tr>
+                            <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}
+                            {this.state.sume===true && <img className="tickAsisitire" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_3_gc82ss.png"></img>}
+                            </span></tr>
                             <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{nuevaFecha} - {this.props.toque.hora}</strong></span></tr>
                             <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}, {this.props.toque.departamento}</strong></span></tr>
                             <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
@@ -97,8 +113,7 @@ class ProximoToque extends React.Component {
                                     :
                                     (
                                         <div className="centrado">
-                                            <p className="subtituloChicoSume">ASISTIRAS</p>
-                                            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590867312/rock_i8ls6v.png"></img>
+                                            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
                                         </div>
                                     )
                             )

@@ -2,10 +2,11 @@ import React from 'react';
 import {BrowserRouter , Route , Link, Redirect } from "react-router-dom";
 import Home from './Home';
 import Bandas from './Components/Bandas';
-import Contacto from './Components/Contacto';
 import Menu from './Components/Menu/Menu';
 import SideDrawer from './Components/Menu/SideDrawer';
 import Backdrop from './Components/Menu/Backdrop';
+import Contacto from './Components/Contacto/Contacto';
+import Proximamente from './Components/Proximamente';
 
 class App extends React.Component{
 
@@ -38,7 +39,7 @@ class App extends React.Component{
                 {this.state.sideDrawerOpen && <Backdrop click={this.backdropClcikHandler}></Backdrop>} 
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/home" component={Home}></Route>
-                <Route path="/bandas/" component={Bandas}></Route>
+                <Route path="/bandas/" component={Proximamente}></Route>
                 <Route path="/contacto" component={Contacto}></Route>
             </BrowserRouter>
             </div>

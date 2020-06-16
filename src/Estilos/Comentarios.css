@@ -9,6 +9,8 @@
     font-family: 'Cairo', sans-serif;
     font-size: 16px;
     margin: 0px;
+    padding-top: 10px;
+    padding-left: 10px;
     font-weight: bold;
 }
 
@@ -16,10 +18,14 @@
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
     margin: 0px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .comentario{
     width: 100%;
+    background-color: rgba(110, 137, 177, 0.2);
+    border-radius: 5px;
 }
 
 .fechaComentario{
@@ -27,4 +33,5 @@
     font-size: 9px;
     margin: 0px;
     margin-top: -3px;
+    padding-left: 10px;
 }

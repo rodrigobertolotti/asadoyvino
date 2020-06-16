@@ -28,7 +28,8 @@ class AgregarToque extends React.Component {
         cantidadAsistentes: "",
         linkImagen: "",
         departamento: "",
-        tamano: ""
+        tamano: "",
+        validoEnvio: false
     }
 
     agregarToque = () => {
@@ -112,6 +113,16 @@ class AgregarToque extends React.Component {
     onChangeSelectTamano = (e) => {
         this.setState({
             tamano: e.target.value
+        })
+    }
+
+    verificoDatos = () => {
+        const valido= this.state.nombre!==""
+         && this.state.fecha!=="" 
+         && this.state.departamento!=="" 
+         && this.state.lugar!=="";
+        this.setState({
+            validoEnvio: valido
         })
     }
 

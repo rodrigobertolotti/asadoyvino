@@ -19,8 +19,22 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    align-content: center;
-    text-align: center;
+}
+
+.saberMas{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.iconoSocial{
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.espacio{
+    height: 20px;
 }
 }
 
@@ -31,6 +45,12 @@
         align-self: center;
     }
     
+    .saberMas{
+        font-family: 'Cairo', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0px;
+    }
     .textoCaracteristicas{
         font-family: 'Cairo', sans-serif;
         font-size: 14px;
@@ -46,7 +66,8 @@
         display: flex;
         flex-direction: column;
         flex: 1;
-        align-content: center;
-        text-align: center;
+    }
+    .espacio{
+        height: 20px;
     }
 }
