@@ -1,3 +1,4 @@
+
 .side-drawer{
     height: 100%;
     background: white;
@@ -18,7 +19,7 @@
 
 .side-drawer ul {
     text-decoration: none;
-    height: 100%;
+    
     list-style: none;
     display: flex;
     flex-direction: column;

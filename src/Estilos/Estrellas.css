@@ -35,7 +35,12 @@
     margin-bottom: 60px;
 }
 
-
+.puntuaToque{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 600;
+}
 .textoOpinion{
     font-family: 'Cairo', sans-serif;
     font-size: 12px;
@@ -90,6 +95,12 @@
     margin-bottom: 20px;
 }
 
+.puntuaToque{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    margin:0px;
+    font-weight: 600;
+}
 
 .divComentarios{
     height: 450px;

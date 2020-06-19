@@ -8,7 +8,7 @@ import './Estilos/App.css';
 function Home() {
   console.log(window.innerWidth);
   return (
-    <div className="fondo">
+    <div className="fondo" style={{width: window.innerWidth}}>
       <div className="rowGeneral">
         <div className="columnGeneral">
           { (window.innerWidth < 600) && <Destacado></Destacado>}
@@ -23,5 +23,4 @@ function Home() {
   );
 }
 
-export default Home
-  ;
+export default Home;

@@ -147,6 +147,7 @@ class Estrellas extends React.Component {
                         style={{ width: '90%' }}
                         label="Comentarios" />
                 </div>
+                <center><span className="puntuaToque">Puntuación:</span></center>
                 <Container style={{ textAlign: 'center', marginTop: 25 }}>
                     <div class="estrellas">
                         {estrellas}

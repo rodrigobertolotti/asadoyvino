@@ -36,6 +36,13 @@
 .espacio{
     height: 20px;
 }
+
+
+.textoComprar{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
 }
 
 
@@ -74,5 +81,11 @@
     }
     .espacio{
         height: 20px;
+    }
+
+    .textoComprar{
+        font-family: 'Cairo', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
     }
 }

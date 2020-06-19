@@ -14,7 +14,7 @@
 }
 
 .imgMenu{
-    height: 50px;
+    height: 35px;
     margin-left: 10px;
 }
 .toolbar_logo{
@@ -48,4 +48,17 @@
 
 .espacio{
     height: 15px;
+}
+
+.derecha{
+    width: 100%;
+    text-align: right;
+}
+
+.logoSocial{
+    padding-right: 15px;
+}
+
+.logoSocial:hover{
+    cursor: pointer;
 }

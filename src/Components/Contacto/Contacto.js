@@ -12,8 +12,36 @@ class Contacto extends React.Component {
         mail: '',
         mensaje: '',
         enviado: false,
-        cargando: false
+        cargando: false,
+        width:0,
+        height: 0
     }
+
+    constructor(props) {
+        super(props);
+        this.state = { width: 0, height: 0, enviado: false,
+            nombre: '',
+            mail: '',
+            mensaje: '',
+            enviado: false,
+            cargando: false,
+            width:0,
+            height: 0 };
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+      }
+      
+      componentDidMount(){
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+      }
 
     enviarMensaje = () => {
         this.setState({
@@ -51,7 +79,7 @@ class Contacto extends React.Component {
 
     render() {
         return (
-            <div className="fondoContacto">
+            <div className="fondoContacto" style={{height: this.state.height}}>
                 <div className="columnContacto">
                     {this.state.enviado===false && 
                     <>
@@ -60,25 +88,23 @@ class Contacto extends React.Component {
                     </div>
                     <div className="row">
                         <TextField
-                            multiline
                             onChange={this.onChangeNombre}
-                            style={{ margin: 10 }}
+                            style={{marginTop: 10}}
                             label="Nombre"
                             variant="filled" />
                     </div>
                     <div className="row">
                         <TextField
                             onChange={this.onChangeMail}
-                            style={{ margin: 10 }}
-                            multiline
+                            style={{marginTop: 10}}
                             label="Mail"
                             variant="filled" />
                     </div>
                     <div className="row">
                         <TextField
                             onChange={this.onChangeMensaje}
-                            style={{ margin: 10 }}
                             multiline
+                            style={{marginTop: 10}}
                             rows={3}
                             label="Mensaje"
                             variant="filled" />
