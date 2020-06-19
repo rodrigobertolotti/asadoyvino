@@ -44,6 +44,11 @@
         width :200px;
         align-self: center;
     }
+
+    .iconoSocial{
+        margin: 0px;
+        margin-left: 10px;
+    }
     
     .saberMas{
         font-family: 'Cairo', sans-serif;

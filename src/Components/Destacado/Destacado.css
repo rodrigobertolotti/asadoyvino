@@ -5,11 +5,38 @@
     margin:0px;
     font-weight: 700;
     margin-left: 10px;
-        margin-top: -15px;
-        margin-bottom: 5px;
+    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
+.textoVertical{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 5px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    color: white;
+}
+
+.cartelVertical{
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    margin:0;
+    padding: 0;
+    height: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: -20px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: black;
+}
 .espacio{
     height: 15px;
 }
@@ -22,7 +49,7 @@
 
 .contador{
     font-family: 'Cairo', sans-serif;
-    font-size: 22px;
+    font-size: 16px;
     margin:0px;
     margin-left: 10px;
     font-weight: 700;
@@ -76,10 +103,10 @@
 }
 
 .columna3{
-    flex: 3;
+    flex: 5;
 }
 .columna1{
-    flex: 2;
+    flex: 3;
     align-items: center;
     justify-content: center;
 }
@@ -113,8 +140,70 @@
 .estrellaDestacado{
     margin-top: -50px;
 }
+
+.rowDestacado{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    align-items: center;
+}
+
+.columnDestacado{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    align-items: center;
+    justify-content: center;
+}
+
+.divAsistentesDestacado{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.cantidadAsistentesNegro{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 16px;
+    color: black;
+    margin-left: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.cantidadAsistentesVerde{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 16px;
+    color: green;
+    margin-left: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.textoBotonDestacado{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    margin: 0;
+}
+
+.cantidadAsistentesDestacado{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.iconoAsistireDestacado{
+    margin-top: 10px;
+}
 }
 @media only screen and (max-width: 600px){
+
+    .cartelVertical{
+        width: 20px;
+        height: 100%;
+        background-color: black;
+    }
 
     .estrellaDestacado{
         margin-top: -45px;
@@ -129,7 +218,7 @@
 
     .contador{
         font-family: 'Cairo', sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         margin:0px;
         margin-left: 8px;
         font-weight: 700;
@@ -148,11 +237,10 @@
     }
     .nombreToquePrincipal{
         font-family: 'Cairo', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin:0px;
     font-weight: 700;
-    margin-left: 15px;
-        margin-top: -15px;
+    margin-left: 10px;
         margin-bottom: 5px;
     text-transform: uppercase;
     }
@@ -226,5 +314,104 @@
     .descripcion{
         font-size: 9px;
         margin-top: 10px;
+    }
+
+    .textoVertical{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-family: 'Cairo', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 5px;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        color: white;
+    }
+    
+    .cartelVertical{
+        width: 50px;
+        display: flex;
+        flex-direction: row;
+        margin:0;
+        padding: 0;
+        height: 100%;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: -20px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: black;
+    }
+
+    .cantidadAsistentesNegro{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        font-size: 16px;
+        color: black;
+        margin-left: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    .cantidadAsistentesVerde{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        font-size: 16px;
+        color: green;
+        margin-left: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .rowDestacado{
+        display: flex;
+        flex-direction: column;
+        flex: 4;
+        align-items: center;
+    }
+    
+    .columnDestacado{
+        display: flex;
+        flex-direction: row;
+        flex:2;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .divAsistentesDestacado{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .cantidadAsistentesDestacado{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        padding-left: 10px;
+        padding-bottom: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .iconoAsistireDestacado{
+        margin-top: 10px;
+    }
+
+    .tablaCountDown{
+        padding: 10px;
+    }
+    
+    .textoBotonDestacado{
+        font-family: 'Cairo', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .space{
+        height: 10px;
     }
 }

@@ -28,11 +28,15 @@ class AgregarToque extends React.Component {
         cantidadAsistentes: "",
         linkImagen: "",
         departamento: "",
-        tamano: "",
-        validoEnvio: false
+        tamano: "@",
+        validoEnvio: false, 
+        loading: false
     }
 
     agregarToque = () => {
+        this.setState({
+            loading: true
+        })
         axios.post('https://desafinando.com/asadoyvino/api/AgregarToque.php', {
             "nombre": this.state.nombre,
             "lugar": this.state.lugar,
@@ -48,7 +52,9 @@ class AgregarToque extends React.Component {
             "linkImagen": this.state.linkImagen
         })
             .then(function (response) {
-                console.log("Agregado correctamente");
+                this.setState({
+                    loading: false
+                })
             })
             .catch(function (error) {
                 console.log(error);
@@ -116,29 +122,23 @@ class AgregarToque extends React.Component {
         })
     }
 
-    verificoDatos = () => {
-        const valido= this.state.nombre!==""
-         && this.state.fecha!=="" 
-         && this.state.departamento!=="" 
-         && this.state.lugar!=="";
-        this.setState({
-            validoEnvio: valido
-        })
-    }
-
     render() {
         const listaDepartamentos = ["Canelones", "Maldonado", "San Jose"];
-        const tamanoToques = ["Bar/Restaurante", "Solista", "Toque de banda", "Festival"];
         return (
             <div>
+                {this.state.loading===true && <h1>Cargando...</h1>}
+                {this.state.loading===false && 
+                <>
                 <div className="rowAgregar">
                     <div className="columnAgregar">
                         <TextField
+                            required
                             onChange={this.handleChangeNombre}
                             style={{ fontSize: 12, width: '90%' }}
                             label="Bandas" />
                         <div className="espacio"></div>
-                        <FormControl  style={{ fontSize: 12,width: '90%' }}>
+                        <FormControl 
+                         style={{ fontSize: 12,width: '90%' , marginTop:15}}>
                         <InputLabel>Departamento</InputLabel>
                             <Select onChange={this.onChangeSelect}>
                                 <MenuItem value="Montevideo">Montevideo</MenuItem>
@@ -150,6 +150,7 @@ class AgregarToque extends React.Component {
                         <div className="espacio"></div>
                         <TextField
                             disableToolbar
+                            required
                             margin="normal"
                             type="date"
                             label="Fecha"
@@ -176,6 +177,7 @@ class AgregarToque extends React.Component {
                     </div>
                     <div className="columnAgregar">
                         <TextField
+                            required
                             onChange={this.handleChangeLugar}
                             style={{ fontSize: 12,width: '90%' }}
                             label="Lugar"
@@ -189,24 +191,18 @@ class AgregarToque extends React.Component {
                             }}
                         />
                         <div className="espacio"></div>
-                        <FormControl
-                            style={{ fontSize: 12,width: '90%' }}>
-                            <InputLabel>Tipo de toque</InputLabel>
-                            <Select
-                                label="Tipo de toque"
-                                onChange={this.onChangeSelectTamano}>
-                                {tamanoToques.map((opcion) => (
-                                    <MenuItem value={opcion}>{opcion}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
+                        <TextField
+                            margin="normal"
+                            style={{ fontSize: 9,width: '90%' }}
+                            label="Instagram"
+                            onChange={this.onChangeSelectTamano}
+                        />
                         <div className="espacio"></div>
                         <TextField
                             margin="normal"
                             style={{ fontSize: 12,width: '90%' }}
                             id="time-picker"
                             label="Hora"
-                            type="time"
                             value={this.state.hora}
                             onChange={this.handleChangeHora}
                             KeyboardButtonProps={{
@@ -225,7 +221,7 @@ class AgregarToque extends React.Component {
                                     </InputAdornment>
                                 ),
                             }}
-                            label="Lugares de venta?" />
+                            label="Puntos de venta" />
                     </div>
                 </div>
                 <div className="espacio"></div>
@@ -238,11 +234,17 @@ class AgregarToque extends React.Component {
                 <div className="espacio"></div>
                 <UploadImage capturo={(e) => this.capturoLinkImagen(e)}></UploadImage>
                 <Container style={{ textAlign: 'center', margin: '20px' }}>
-                    <Button color="primary" onClick={this.agregarToque} variant="contained">
+                    <Button 
+                    color="primary" 
+                    onClick={this.agregarToque} 
+                    disabled={this.state.nombre.length<4  && this.state.lugar.length<4}
+                    variant="contained">
                         <p className="textoBoton">AGREGAR</p>
                     </Button>
                 </Container>
-            </div>
+                </>
+                 }
+           </div>
 
         )
     }

@@ -59,11 +59,11 @@ class ModalProximoToque extends React.Component {
         return (
             <Modal isOpen={this.props.openModal} ariaHideApp={false} style={customStyles}>
                 <div className="row" style={{ paddingBottom: 20, borderBottom: "thin solid" }}>
-                    <div className="columna3">
                         <p className="subtituloChico">{this.props.toqueSeleccionado.nombre}</p>
+                        <div className="divInstagram">
                         <img className="iconoSocial"
                          src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592188084/instagram-bosquejado_v9ezxx.png"></img>
-                    </div>
+                         </div>
                     <div className="columna1">
                         <div className="alineoDerecha">
                             <i class="far fa-2x fa-times-circle" onClick={this.props.cerrarModal}></i>
@@ -79,7 +79,6 @@ class ModalProximoToque extends React.Component {
                         centered
                     >
                         <Tab label={<span className="textoLabel">Informacion</span>} />
-                        <Tab label={<span className="textoLabel">Comunidad</span>} />
                     </Tabs>
                 </Paper>
                 {this.state.tabValue === 0 &&

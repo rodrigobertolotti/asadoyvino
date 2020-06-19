@@ -20,11 +20,11 @@ class ModalToqueFinalizado extends React.Component {
         tabValue: 0, 
         cantidadComentarios: 0,
         comentarioRealizado: false,
-        loadingAgregarComentario: false
+        loadingAgregarComentario: false,
+        estrellas: 0
     }
 
     componentDidMount() {
-        console.log("Id toque: " + this.props.toque);
         this.setState({
             loadingComments: true
         })
@@ -125,14 +125,9 @@ class ModalToqueFinalizado extends React.Component {
             opiniones: invertido, 
             comentarioRealizado: true,
         })
-
-
-
-
     }
 
-    render() {
-            
+    render() {        
         const tamanoPantalla = window.screen.width;
         let customStyles = {
             content: {
@@ -164,7 +159,7 @@ class ModalToqueFinalizado extends React.Component {
         return (
             <Modal isOpen={this.props.isOpen}
             style={customStyles}
-        >
+            >
             <div className="row" style={{paddingBottom: 20 ,borderBottom: "thin solid"}}>
                 <div className="columna3">
                     <p className="subtituloChico">{this.props.toque.nombre} en {this.props.toque.lugar}</p>

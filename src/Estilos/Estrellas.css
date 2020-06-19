@@ -92,13 +92,12 @@
 
 
 .divComentarios{
-    height: 350px;
+    height: 450px;
     overflow: auto;
     display: 'block';
-    width: 90%;
+    width: 100%;
     padding-bottom:30px;
-    margin-top: 20px;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 

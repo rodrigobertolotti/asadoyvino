@@ -169,15 +169,6 @@ class ListaToques extends React.Component {
                                 ))}
                             </Select>
                         </FormControl>
-                        <FormControl variant="filled" className="selectDepartamento" style={{ margin: 5, backgroundColor: 'white' }}>
-                            <InputLabel className="selectDepartamento" style={{fontSize: 14}}>{this.state.textoTamanoSelect}</InputLabel>
-                            <Select>
-                                <MenuItem value="Todos">Todos</MenuItem>
-                                {tamanoToques.map((opcion) => (
-                                    <MenuItem value={opcion}>{opcion}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
                     </div>
                     <ModalProximoToque
                         openModal={this.state.openModal}
