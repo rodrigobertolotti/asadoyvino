@@ -111,7 +111,7 @@ class Estrellas extends React.Component {
 
     render() {
         const estrellas = [];
-        let muestroAgregado= this.props.comentarioRealizado === true && this.props.loading===false;
+        let muestroAgregado = this.props.comentarioRealizado === true && this.props.loading === false;
         for (var i = 0; i < 5; i++) {
             estrellas.push(
                 <img
@@ -127,7 +127,18 @@ class Estrellas extends React.Component {
 
         return (
             <div className="divOpinar">
-                <center><p className="explicacion">Dejá tu opinion del toque, bandas o la organización. Publica artículos perdidos para que den con su dueño.</p></center>
+                <div className="rowEstrellas">
+                    <div className="columnEstrellas2">
+                    <center><p className="explicacion">- Dejá tu opinion del toque, bandas o la organización. </p></center>
+                    <center><p className="explicacion">- Publica articulos perdidos para que den con su dueño/a. </p></center>
+                    <center><p className="explicacion">- Puntúa el toque del 1 al 5 </p></center>
+                    </div>
+                    <div className="columnEstrellas1">
+                        <img
+                         className="iconoComentarios" 
+                         src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592661642/opinion_1_zqyjjn.png"></img>
+                    </div>
+                </div>
                 <div class="comentarios">
                     <TextField
                         required

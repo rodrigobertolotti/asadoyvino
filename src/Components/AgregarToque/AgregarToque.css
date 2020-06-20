@@ -1,0 +1,70 @@
+.rowAgregar{
+    display: flex;
+    flex-direction: row;
+    flex:1 
+}
+
+.columnAgregar{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.tituloAgregar{
+    font-family: 'Cairo', sans-serif;
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+    align-self: center;
+    padding: 50px;
+}
+
+.espacio{
+    height: 10px;
+}
+
+.fondoFormularioAgregar{
+    background-color: rgba(255,255,255,0.5);
+    width: 75%;
+    align-self: center;
+    border-radius: 10px;;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+
+.divUpload{
+    padding-top: 10px;
+    width: 60%;
+}
+
+.spanUpload{
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 600px) {
+.textoAgregarToque{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-bottom: 20px;;
+}
+}
+
+@media only screen and (max-width: 600px) {
+.textoAgregarToque{
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+}

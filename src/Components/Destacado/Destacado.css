@@ -1,3 +1,10 @@
+.rowDestacado{
+    display: flex;
+    flex:1;
+    padding: 0;
+    flex-direction: column;
+}
+
 @media only screen and (min-width: 600px){
 .nombreToquePrincipal{
     font-family: 'Cairo', sans-serif;
@@ -45,6 +52,7 @@
     background-color: rgba(0,0,0,0.5);
     padding-right: 10px;
     border-radius: 5px;
+    margin: 2px;
 }
 
 .contador{
@@ -199,11 +207,6 @@
 }
 @media only screen and (max-width: 600px){
 
-    .cartelVertical{
-        width: 20px;
-        height: 100%;
-        background-color: black;
-    }
 
     .estrellaDestacado{
         margin-top: -45px;
@@ -212,6 +215,7 @@
     .elementoTable{
         background-color: rgba(0,0,0,0.5);
         padding-right: 8px;
+        margin: 2px;
         border-radius: 5px;
     }
 
@@ -232,9 +236,6 @@
     }
 
 
-    .destacadosDiv{
-        margin-top: 20px;
-    }
     .nombreToquePrincipal{
         font-family: 'Cairo', sans-serif;
     font-size: 16px;

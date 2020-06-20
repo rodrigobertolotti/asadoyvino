@@ -8,6 +8,8 @@ import thunkMiddleware from 'redux-thunk';
 import OpinionesReducer from '../src/Redux/OpinionesReducer/OpinionesReducer';
 import AsistentesReducer from '../src/Redux/AsistentesReducer/AsistentesReducer';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const reducer = combineReducers({
   opiniones: OpinionesReducer, 

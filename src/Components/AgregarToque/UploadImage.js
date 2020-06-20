@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import '../Estilos/AgregarToque.css';
+import './AgregarToque.css';
 import ClipLoader from "react-spinners/ClipLoader";
 
 function UploadImage(props) {
@@ -33,7 +33,8 @@ function UploadImage(props) {
 
     return (
         <>
-            <div>
+            <div className="divUpload">
+                <span className="spanUpload">Subir flyer/imagen</span>
                 <center>
                     <Button
                         variant="contained"

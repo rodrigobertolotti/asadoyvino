@@ -42,6 +42,11 @@
     font-family: 'Cairo', sans-serif;
     font-size: 12px;
     font-weight: 600;
+    margin:0
+}
+
+.tablaInfo{
+    margin-top: 10px;
 }
 }
 
@@ -87,5 +92,10 @@
         font-family: 'Cairo', sans-serif;
         font-size: 12px;
         font-weight: 600;
+        margin: 0;
+    }
+
+    .tablaInfo{
+        margin-top: 10px;
     }
 }

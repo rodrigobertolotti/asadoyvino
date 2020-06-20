@@ -71,19 +71,24 @@ class ProximoToque extends React.Component {
         return false;
     }
 
+    diaSemana = (fecha) => {
+        let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado","Domingo"];
+        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        let fechaNum = fecha.getUTCDate();
+        let mes_name = fecha.getMonth();
+        return dias[fecha.getDay()] + " " + fechaNum + " de " + meses[mes_name];
+    }
+
     render() {
-        let fecha = this.props.toque.fecha;
-        let fechaSplitArray = fecha.split("-");
-        let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
         return (
             <div>
                 <div className="divAgregar">
-                    <table>
+                    <table className="tablaInfo">
                         <td>
                             <tr><span className="textoCaracteristicas">Cantidad asistentes: </span><span className={this.state.estiloContador}>{this.state.cantidadAsistentes}
                                 {this.state.sume === true && <img className="tickAsisitire" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_3_gc82ss.png"></img>}
                             </span></tr>
-                            <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{nuevaFecha} - {this.props.toque.hora}</strong></span></tr>
+                            <tr><span className="textoCaracteristicas">Fecha y hora: <strong>{this.diaSemana(new Date(this.props.toque.fecha))} - {this.props.toque.hora}</strong></span></tr>
                             <tr><span className="textoCaracteristicas">Lugar: <strong>{this.props.toque.lugar}, {this.props.toque.departamento}</strong></span></tr>
                             <tr><span className="textoCaracteristicas">Precio entradas: <strong>{this.props.toque.precioEntradas}</strong></span></tr>
                             <tr><span className="textoCaracteristicas">Puntos de venta: <strong>{this.props.toque.ventaEntradas}</strong></span></tr>
@@ -95,8 +100,9 @@ class ProximoToque extends React.Component {
                     <img className="flyerToque" alt="" src={this.props.toque.linkImagen} />
                     <center>
                         <Button
-                            style={{ marginTop: 10, height: 20, width: '30%' }}
+                            style={{marginTop: 10}}
                             variant="contained"
+                            size="small"
                             color='default'>
                             <p className="textoComprar">COMPRAR ONLINE</p>
                         </Button>

@@ -34,7 +34,7 @@ export default function ToqueLabel(props) {
                     </p>
                 </div>
                 <div className="row">
-                    <p className="fechaHora">{nuevaFecha} - <strong>{props.toque.hora}hs</strong></p>
+                    <p className="fechaHora">{diaSemana(new Date(props.toque.fecha))} - <strong>{props.toque.hora}hs</strong></p>
                 </div>
                 <div className="row">
                     <p className="lugar">{props.toque.lugar} - {props.toque.departamento}</p>
@@ -44,14 +44,10 @@ export default function ToqueLabel(props) {
     )
 }
 
-/*            <div className="columna1">
-                <div className="rowCentrado">
-                    <div className="rowCentrado">
-                        <div class="img-with-text">
-                        <img src={imagen}
-                            className="iconoToque"
-                            alt="sometext"
-                            ></img>
-                        </div>
-                    </div>
-                </div>*/
+function diaSemana(fecha){
+    let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado","Domingo"];
+    let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    let fechaNum = fecha.getUTCDate();
+    let mes_name = fecha.getMonth();
+	return dias[fecha.getDay()] + " " + fechaNum + " de " + meses[mes_name];
+}

@@ -4,7 +4,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import '../Estilos/Principal.css';
 import Button from '@material-ui/core/Button';
-import ModalAgregarToque from '../Components/Modales/ModalAgregarToque';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -158,7 +157,7 @@ class ListaToques extends React.Component {
         return (
             <>
                 <div className="listaToquesDiv">
-                    <span className="textoFiltrar">BUSCAR TOQUES</span>
+                    <center><span className="textoFiltrar">PRÓXIMOS TOQUES</span></center>
                     <div className="select">
                         <FormControl variant="filled" className="selectDepartamento" style={{ margin: 5, backgroundColor: 'white'  }}>
                             <InputLabel className="selectDepartamento" style={{fontSize: 14}}>{this.state.textoDeptosSelect}</InputLabel>
@@ -187,15 +186,6 @@ class ListaToques extends React.Component {
                             }
                         </List>
                     </div>
-                    <div className="divBoton">
-                        <Button onClick={this.abrirAgregarToque} variant="contained" color="primary">
-                            <p className="textoBoton">AGREGAR</p>
-                        </Button>
-                    </div>
-                    <ModalAgregarToque
-                        openModal={this.state.modalAgregarToque}
-                        cerrarModal={() => this.cerrarAgregarToque()}
-                        estilo={customStyles}></ModalAgregarToque>
                 </div>
             </>
         )

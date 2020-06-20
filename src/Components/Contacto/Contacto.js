@@ -1,9 +1,9 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import './Contacto.css';
 import axios from 'axios';
 import BeatLoader from "react-spinners/BeatLoader";
+import { Form, Col, InputGroup } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
 
 class Contacto extends React.Component {
 
@@ -86,32 +86,38 @@ class Contacto extends React.Component {
                     <div className="rowContacto">
                         <p className="textoContacto">Contactate con nosotros</p>
                     </div>
-                    <div className="row">
-                        <TextField
-                            onChange={this.onChangeNombre}
-                            style={{marginTop: 10}}
-                            label="Nombre"
-                            variant="filled" />
-                    </div>
-                    <div className="row">
-                        <TextField
-                            onChange={this.onChangeMail}
-                            style={{marginTop: 10}}
-                            label="Mail"
-                            variant="filled" />
-                    </div>
-                    <div className="row">
-                        <TextField
-                            onChange={this.onChangeMensaje}
-                            multiline
-                            style={{marginTop: 10}}
-                            rows={3}
-                            label="Mensaje"
-                            variant="filled" />
-                    </div>
+                    <Form.Row>
+                                            <Form.Group as={Col} controlId="formGridEmail">
+                                                <Form.Label>Nombre</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    onChange={this.onChangeNombre}
+                                                    placeholder="Nombre del evento" />
+                                            </Form.Group>
+                                        </Form.Row>
+                                        <Form.Row>
+                                            <Form.Group as={Col} controlId="formGridEmail">
+                                                <Form.Label>Mail</Form.Label>
+                                                <Form.Control
+                                                    type="text"
+                                                    onChange={this.onChangeMail}
+                                                    placeholder="Nombre del evento" />
+                                            </Form.Group>
+                                        </Form.Row>
+                                        <Form.Row>
+                                            <Form.Group as={Col} controlId="formGridEmail">
+                                                <Form.Label>Mensaje</Form.Label>
+                                                <Form.Control
+                                                    onChange={this.onChangeMensaje}
+                                                    type="text"
+                                                    as="textarea" 
+                                                    rows="3"
+                                                    placeholder="Dejanos tu mensaje." />
+                                            </Form.Group>
+                                        </Form.Row>
                     {this.state.cargando === false &&
                             <Button
-                                style={{ margin: 10 }}
+                                style={{ marginTop: 20 }}
                                 variant="contained"
                                 color="primary"
                                 onClick={this.enviarMensaje}>
@@ -124,6 +130,7 @@ class Contacto extends React.Component {
     }
                         {this.state.cargando === true &&
                             <BeatLoader
+                                style={{margin: 20}}
                                 size={30}
                                 color={"#123abc"}
                             />

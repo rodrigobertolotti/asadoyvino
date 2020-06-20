@@ -53,7 +53,7 @@ class ListaToquesOpinion extends React.Component {
         return (
             <>
                 <div className="listaToquesDivOpiniones">
-                <span className="textoFiltrar">ULTIMAS OPINIONES</span>
+                <center><span className="textoFiltrar">ULTIMAS OPINIONES</span></center>
                     <div className="listContainer">
                         <List>
                             {
