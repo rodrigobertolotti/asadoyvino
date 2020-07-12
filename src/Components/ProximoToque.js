@@ -24,6 +24,7 @@ class ProximoToque extends React.Component {
                 estiloContador: "subtitulochico",
                 sume: true,
                 loadingSumar: false,
+                banda:''
             }
         } else {
             this.state = {
@@ -31,9 +32,11 @@ class ProximoToque extends React.Component {
                 estiloContador: "subtitulochico",
                 sume: false,
                 loadingSumar: false,
+                banda:''
             }
         }
     }
+
 
     asistePreviamente = () => {
         const asiste = localStorage.getItem(this.props.toque.id);
@@ -98,15 +101,6 @@ class ProximoToque extends React.Component {
                 <div className="espacio"></div>
                 <div className="rowProximoToque">
                     <img className="flyerToque" alt="" src={this.props.toque.linkImagen} />
-                    <center>
-                        <Button
-                            style={{marginTop: 10}}
-                            variant="contained"
-                            size="small"
-                            color='default'>
-                            <p className="textoComprar">COMPRAR ONLINE</p>
-                        </Button>
-                    </center>
                     <p className="textoDescripcion">{this.props.toque.descipcion}</p>
                     <div className="espacio"></div>
                     <div className="columna1">
@@ -114,19 +108,17 @@ class ProximoToque extends React.Component {
                             (
                                 this.state.sume === false ?
                                     <Button
-                                        style={{ marginBottom: 15 }}
+                                        style={{ marginBottom: 15, width: 120 }}
                                         className="botonAsistire"
                                         disabled={this.state.sume}
                                         variant="contained"
                                         color="primary"
-                                        onClick={this.sumarAsistente}
-                                        startIcon={
-                                            <Avatar src={'https://res.cloudinary.com/dyvyiepbv/image/upload/v1590786469/lista-de-quehaceres_mmlabw.png'} />}>
+                                        onClick={this.sumarAsistente}>
                                         <p className="textoBoton"> VOY</p>
                                     </Button>
                                     :
                                     (
-                                        <div className="centrado">
+                                        <div className="centradoProximos">
                                             <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
                                         </div>
                                     )
@@ -134,7 +126,7 @@ class ProximoToque extends React.Component {
                         }
                         {
                             this.state.loadingSumar === true &&
-                            <div className="centrado">
+                            <div className="centradoProximos">
                                 <BeatLoader
                                     size={30}
                                     color={"#123abc"}

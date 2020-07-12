@@ -1,26 +1,20 @@
-.rowDestacado{
-    display: flex;
-    flex:1;
-    padding: 0;
-    flex-direction: column;
-}
+
 
 @media only screen and (min-width: 600px){
 .nombreToquePrincipal{
     font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-    margin:0px;
+    font-size: 18px;
+    margin-top:20px;
+    margin-bottom: 0px;
     font-weight: 700;
-    margin-left: 10px;
-    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
 .textoVertical{
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     font-family: 'Cairo', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     line-height: 5px;
     writing-mode: vertical-lr;
@@ -111,8 +105,9 @@
 }
 
 .columna3{
-    flex: 5;
+    flex: 3;
 }
+
 .columna1{
     flex: 3;
     align-items: center;
@@ -151,19 +146,32 @@
 
 .rowDestacado{
     display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+}
+
+.rowDestacado2{
+    display: flex;
     flex-direction: column;
-    flex: 4;
+    flex: 2;
     align-items: center;
 }
 
 .columnDestacado{
     display: flex;
-    flex-direction: row;
-    flex:1;
+    flex-direction: column;
+    flex:4;
     align-items: center;
     justify-content: center;
 }
-
+.columnDestacado2{
+    display: flex;
+    flex-direction: column;
+    flex:4;
+    align-items: center;
+    justify-content: center;
+}
 .divAsistentesDestacado{
     padding-top: 5px;
     padding-bottom: 5px;
@@ -197,12 +205,13 @@
 
 .cantidadAsistentesDestacado{
     font-family: 'Cairo', sans-serif;
-    margin: 0px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
+    margin: 0;
 }
 .iconoAsistireDestacado{
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 }
 @media only screen and (max-width: 600px){
@@ -238,11 +247,10 @@
 
     .nombreToquePrincipal{
         font-family: 'Cairo', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     margin:0px;
     font-weight: 700;
-    margin-left: 10px;
-        margin-bottom: 5px;
+    margin-top: 10px;
     text-transform: uppercase;
     }
     
@@ -269,7 +277,10 @@
         display: flex;
         flex-direction: row;
         text-align: center;
-        flex: 3,
+        flex: 3;
+        margin-top: 10px;
+        margin-bottom: 0;
+        padding:0;
     }
     
     .divCountdown{
@@ -368,19 +379,34 @@
 
     .rowDestacado{
         display: flex;
-        flex-direction: column;
-        flex: 4;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+    }
+
+    .rowDestacado2{
+        display: flex;
+        flex-direction: row;
+        flex: 3;
         align-items: center;
     }
     
     .columnDestacado{
         display: flex;
-        flex-direction: row;
-        flex:2;
+        flex-direction: column;
+        flex:3;
         align-items: center;
         justify-content: center;
     }
-    
+
+    .columnDestacado{
+        display: flex;
+        flex-direction: column;
+        flex:4;
+        align-items: center;
+        justify-content: center;
+    }
+
     .divAsistentesDestacado{
         padding-top: 5px;
         padding-bottom: 5px;
@@ -388,21 +414,15 @@
 
     .cantidadAsistentesDestacado{
         font-family: 'Cairo', sans-serif;
-        margin: 0px;
-        padding-left: 10px;
-        padding-bottom: 5px;
+        font-size: 13px;
         font-weight: 600;
-        font-size: 16px;
-        font-weight: 600;
+        margin: 0;
     }
 
     .iconoAsistireDestacado{
         margin-top: 10px;
     }
 
-    .tablaCountDown{
-        padding: 10px;
-    }
     
     .textoBotonDestacado{
         font-family: 'Cairo', sans-serif;

@@ -13,6 +13,7 @@ class Destacado extends React.Component {
         toque: [],
         loading: false,
         fecha: "",
+        lugar: "",
         estiloCantidadAsistentes: "cantidadAsistentesNegro",
         cantidadAsistentes: 0,
     }
@@ -30,6 +31,7 @@ class Destacado extends React.Component {
                 this.setState({
                     toque: response.data.data[0],
                     loading: false,
+                    lugar: response.data.data[0].lugar,
                     fecha: nuevaFecha,
                     estiloCantidadAsistentes: nuevoEstilo,
                     cantidadAsistentes: response.data.data[0].cantidadAsistentes,
@@ -81,61 +83,60 @@ class Destacado extends React.Component {
 
         return (
             <div className="destacadosDiv">
-                <div className="row">
-                    {this.state.loading === true ?
-                        <div className="columna3">
-                            <center>
-                                <BeatLoader
-                                    size={30}
-                                    color={"#123abc"}
-                                    loading={this.state.loading}
-                                />
-                            </center>
-                        </div>
-                        :
-                        <>
-                            <div className="columna3">
-                                <div className="columnaDestacado">
-                                    <p className="nombreToquePrincipal">{this.state.toque.nombre}</p>
-                                    <span className="cantidadAsistentesDestacado">{this.state.cantidadAsistentes} ASISITENTES</span>
-                                </div>
-                                <div className="columnaDestacado">
-                                    <Countdown fecha={this.state.toque.fecha}></Countdown>
-                                </div>
-                                <div className="columnDestacado">
-                                    {this.state.sume===false ?
-                                    <>
+                {this.state.loading === true ?
+                    <div className="columnDestacado">
+                        <center>
+                            <BeatLoader
+                                size={30}
+                                color={"#123abc"}
+                                loading={this.state.loading}
+                            />
+                        </center>
+                    </div>
+                    :
+                        <div className="columnDestacado">
+                            <div className="rowDestacado2">
+                                <p className="nombreToquePrincipal">{this.state.toque.nombre}</p>
+                            </div>
+                            <div className="rowDestacado">
+                                <span className="cantidadAsistentesDestacado">{this.state.lugar}</span>
+                            </div>
+                            <div className="rowDestacado">
+                                <span className="cantidadAsistentesDestacado">{this.state.cantidadAsistentes} ASISITENTES</span>
+                            </div>
+                            <div className="rowDestacado2">
+                            <Countdown fecha={this.state.toque.fecha}></Countdown>
+                            </div>
+                            <div className="rowDestacado2">
+                                {this.state.sume === false ?
+                                    <div className="rowDestacado">
                                         <Button
-                                            style={{ marginTop: 10 }}
                                             variant="contained"
                                             color="primary"
+                                            style={{marginTop: 10, marginBottom: 20}}
                                             onClick={this.sumarAsistente}>
                                             <p className="textoBotonDestacado"> VOY</p>
                                         </Button>
-                                        <div className="space"></div>
-                                    </>
-                                        :
-                                        <div>
-                                            <img className="iconoAsistireDestacado" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
-                                        </div>
-                                    }
-                                </div>
+                                    </div>
+                                    :
+                                    <div className="rowDestacado">
+                                        <img className="iconoAsistireDestacado" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
+                                    </div>
+                                }
                             </div>
-                        </>
-                    }
-                    <div className="rowDestacado">
-                        <div className="columnDestacado"></div>
-                        <img
-                            className="logoDestacado"
-                            alt=""
-                            src={this.state.toque.linkImagen}
-                        ></img>
-                    </div>
-                    <div className="cartelVertical">
-                        <p className="textoVertical">
-                            DESTACADO
+                        </div>
+                }
+                <div className="columnDestacado">
+                    <img
+                        className="logoDestacado"
+                        alt=""
+                        src={this.state.toque.linkImagen}
+                    ></img>
+                </div>
+                <div className="cartelVertical">
+                    <p className="textoVertical">
+                        DESTACADO
                     </p>
-                    </div>
                 </div>
             </div>
         )

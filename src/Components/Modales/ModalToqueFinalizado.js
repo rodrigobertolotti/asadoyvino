@@ -3,7 +3,7 @@ import ListaComentarios from '../ListaComentarios';
 import Estrellas from '../Estrellas';
 import '../../Estilos/ToqueOpinion.css';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -21,7 +21,9 @@ class ModalToqueFinalizado extends React.Component {
         cantidadComentarios: 0,
         comentarioRealizado: false,
         loadingAgregarComentario: false,
-        estrellas: 0
+        estrellas: 0,
+        cantEstrellas: 0, 
+        enviado: false
     }
 
     componentDidMount() {
@@ -51,6 +53,7 @@ class ModalToqueFinalizado extends React.Component {
 
                 }
             })
+        
     }
 
     componentDidUpdate() {
@@ -103,7 +106,8 @@ class ModalToqueFinalizado extends React.Component {
             .then(() => {
                 this.setState({
                     comentarioRealizado: true,
-                    loadingAgregarComentario: false
+                    loadingAgregarComentario: false, 
+                    enviado: true
                 })
             })
             .catch(function (error) {
@@ -124,6 +128,7 @@ class ModalToqueFinalizado extends React.Component {
         this.setState({
             opiniones: invertido, 
             comentarioRealizado: true,
+            enviado: true
         })
     }
 
@@ -131,25 +136,27 @@ class ModalToqueFinalizado extends React.Component {
         const tamanoPantalla = window.screen.width;
         let customStyles = {
             content: {
-                top: '10%',
+                top: '12%',
                 left: '50%',
                 right: 'auto',
-                bottom: '10%',
+                bottom: '0%',
+                borderRadius: '10px',
                 marginRight: '-50%',
-                width: '60%',
-                height: '80%',
+                width: '50%',
+                height: '90%',
                 transform: 'translate(-40%, -10%)',
             },
         }
         if (tamanoPantalla < 600) {
              customStyles = {
                 content: {
-                    top: '0%',
+                    top: '5%',
                     left: '40%',
                     right: 'auto',  
                     bottom: '0%',
+                    borderRadius: '10px',
                     marginRight: '-50%',
-                    height: '100%',
+                    height: '90%',
                     width: '90%',
                     transform: 'translate(-40%, 0)',
                 },
@@ -161,12 +168,12 @@ class ModalToqueFinalizado extends React.Component {
             style={customStyles}
             >
             <div className="row" style={{paddingBottom: 20 ,borderBottom: "thin solid"}}>
-                <div className="columna3">
-                    <p className="subtituloChico">{this.props.toque.nombre} en {this.props.toque.lugar}</p>
+                <div className="row">
+                <p className="subtituloChico">{this.props.toque.nombre}</p>
                 </div>
                 <div className="column">
                     <div className="alineoDerecha">
-                        <i class="far fa-2x fa-times-circle" onClick={this.props.cerrarModal}></i>
+                        <i class="fa fa-2x fa-times" onClick={this.props.cerrarModal}></i>
                     </div>
                 </div>
             </div>
@@ -187,6 +194,7 @@ class ModalToqueFinalizado extends React.Component {
                     {this.state.muestroComentarios ?
                         <div className="columnToqueOpinion">
                             <Estrellas 
+                            enviado={this.state.enviado}
                             comentarioRealizado={this.state.comentarioRealizado} 
                             agregarToque={this.agregarOpinionToque} 
                             idToque={this.props.idToque}
@@ -198,15 +206,21 @@ class ModalToqueFinalizado extends React.Component {
                             <div className="row">
                                 {this.state.loadingComments === true ?
                                     <center>
-                                        <ClipLoader
-                                            size={100}
+                                        <BeatLoader
+                                            size={50}
                                             color={"#123abc"}
                                             loading={this.state.loading}
                                         />
                                     </center>
                                     :
-                                    <ListaComentarios opiniones={this.state.opiniones}></ListaComentarios>
+                                    <ListaComentarios cantidadEstrellas={this.state.cantEstrellas} 
+                                    opiniones={this.state.opiniones}>
+                                    </ListaComentarios>
                                 }
+                                {
+                                    this.state.cantidadComentario === 0 && <h1>No hay comentarios para este toque</h1>
+                                }
+
                             </div>
                         </div>
                     }

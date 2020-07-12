@@ -11,7 +11,8 @@ class ListaToquesOpinion extends React.Component {
     state = {
         openModal: false,
         toqueSeleccionado: '',
-        toques: []
+        toques: [],
+        noHayToques: false
     }
 
 
@@ -22,7 +23,11 @@ class ListaToquesOpinion extends React.Component {
                     toques: response.data.data
                 })
             })
-            .catch((error) => console.log(error));
+            .catch(
+                this.setState({
+                    noHayToques: true
+                })
+            );
     }
 
     detallesRecital = (toque) => {
@@ -53,15 +58,16 @@ class ListaToquesOpinion extends React.Component {
         return (
             <>
                 <div className="listaToquesDivOpiniones">
-                <center><span className="textoFiltrar">ULTIMAS OPINIONES</span></center>
-                    <div className="listContainer">
+                    <center><span className="textoFiltrar">FINALIZADOS</span></center>
+                    <div className="listContainerTerminados">
+                        <>
                         <List>
                             {
                                 this.state.toques.map((toque) => (
-                                    <ListItem 
-                                    key={toque.id} 
-                                    onHover={() => this.cambiarEstilo()} 
-                                    onClick={() => this.detallesRecital(toque)}>
+                                    <ListItem
+                                        key={toque.id}
+                                        onHover={() => this.cambiarEstilo()}
+                                        onClick={() => this.detallesRecital(toque)}>
                                         <ToqueOpinion toque={toque}></ToqueOpinion>
                                     </ListItem>
                                 ))
@@ -72,6 +78,7 @@ class ListaToquesOpinion extends React.Component {
                             cerrarModal={() => this.cerrarModal()}
                             isOpen={this.state.openModal}
                         ></ModalToqueFinalizado>
+                        </>
                     </div>
                 </div>
             </>

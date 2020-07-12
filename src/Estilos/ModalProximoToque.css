@@ -1,9 +1,31 @@
+.centradoProximos{
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.noHayToques{
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 40px;
+    padding-top:100px;
+    text-align: center;
+    align-self: center;
+}
 @media only screen and (min-width: 600px){
 .flyerToque{
-    width :200px;
+    width :350px;
     align-self: center;
 }
 
+.divAgregar{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .textoCaracteristicas{
     font-family: 'Cairo', sans-serif;
     font-size: 14px;
@@ -12,7 +34,10 @@
 
 .textoDescripcion{
     font-family: 'Cairo', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
+    padding: 15px;
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 .rowProximoToque{
@@ -76,7 +101,8 @@
     
     .textoDescripcion{
         font-family: 'Cairo', sans-serif;
-        font-size: 14px;
+        font-size: 16px;
+        padding: 15px;
     }
     
     .rowProximoToque{
@@ -97,5 +123,10 @@
 
     .tablaInfo{
         margin-top: 10px;
+    }
+    .divAgregar{
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 }

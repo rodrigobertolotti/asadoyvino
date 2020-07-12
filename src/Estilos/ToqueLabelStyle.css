@@ -16,11 +16,25 @@
 
 @media only screen and (min-width: 600px){
 
-  
+  .miniaturaImagen{
+      width: auto;
+      height: 104px;
+      width: 104px;
+      border-radius: 3px;
+      align-self: center;
+      margin-top: 3px;
+      margin-right: 3px;
+  }
+
+  .divEstrellasOpinion{
+    margin-top: -15px;
+}
+
   .rowUbicacionFecha {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    align-content: left;
+    justify-content: center;
     padding-top: 5px;
     width: 100%;
   }
@@ -53,7 +67,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-basis: 100%;
+    text-align: center;
     flex: 1;
   }
 
@@ -70,14 +84,14 @@
     font-family: 'Cairo', sans-serif;
     margin: 0px;
     margin-top: 5px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .lugar{
     font-family: 'Cairo', sans-serif;
     margin: 0px;
-    margin-top: -5px;
-    font-size: 11px;
+    margin-top: -12px;
+    font-size: 12px;
     font-weight: 600; 
   }
 
@@ -124,9 +138,7 @@
       height: 50px;
   }
 
-  .columna3 {
-    flex: 4;
-  }
+
 
 
   .iconoAsistentes{
@@ -146,7 +158,7 @@
     display: flex;
     flex-direction: row;
     border-radius: 2px;
-    height: 90px;
+    height: 110px;
     width: 100%;
     margin: 0px;
     background: rgba(255, 255, 255, 0.8);
@@ -156,7 +168,7 @@
     display: flex;
     flex-direction: row;
     border-radius: 2px;
-    height: 90px;
+    height: 110px;
     width: 100%;
     margin: 0px;
     background: rgba(255, 255, 255, 0.5);
@@ -166,8 +178,10 @@
     margin-right: 5px;
 }
 .labelFinalizado{
+    display: flex;
+    flex-direction: row;
     border-radius: 2px;
-    height: 70px;
+    height: 110px;
     width: 100%;
     margin: 0px;
     background: rgba(255, 255, 255, 0.8);
@@ -175,7 +189,7 @@
 
 .labelFinalizado:hover{
     border-radius: 2px;
-    height: 70px;
+    height: 110px;
     width: 100%;
     margin: 0px;
     background: rgba(255, 255, 255, 0.5);
@@ -186,10 +200,11 @@
     font-family: 'Cairo', sans-serif;
     margin: 0px;
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 700;
-    margin-left: 15px;
-    text-transform: uppercase;
+    padding-right: 10px;
+    padding-left: 10px;
+    align-self: center;
 }
 
 .cantidadAsistentesVerde{
@@ -333,7 +348,7 @@
     margin: 0px;
     font-family: 'Cairo', sans-serif;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .img-with-text {
@@ -344,7 +359,7 @@
     font-weight: 700;
 }
 .iconoRock{
-    width: 20px;
+    width: 28px;
 }
 
 .iconoRockGrande{
@@ -357,17 +372,25 @@
 }
 
 .tickAsisitire{
-    margin-top: 5px;
     margin-left: 5px;
 }
-
+.elementoTabla{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
 }
 
+.lugarToque{
+        font-family: 'Cairo', sans-serif;
+        margin: 0px;
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: 600;
+}
+}
 @media only screen and (max-width: 600px){
 
     .tickAsisitire{
-        padding-top: 7px;
-        padding-left: 3px;
+        padding-left: 5px;
     }
 .row {
     display: flex;
@@ -401,7 +424,7 @@
     font-family: 'Cairo', sans-serif;
     margin: 0px;
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .lugar{
@@ -409,12 +432,12 @@
     margin: 0px;
     font-size: 11px;
     font-weight: 600; 
-    margin-top: -5px;
+    margin-top: -10px;
   }
 
   
     .iconoRock{
-        width: 20px;
+        width: 24px;
     }
     .iconoRockGrande{
         width: 40px;
@@ -455,9 +478,6 @@
         text-transform: uppercase;
     }
     
-    .divEstrellasOpinion{
-        margin-top: 6px;
-    }
     .cantidadAsistentesOpinion{
         font-family: 'Cairo', sans-serif;
         margin: 0px;
@@ -492,10 +512,6 @@
     flex-basis: 100%;
     flex: 4;
   }
-  .columna3{
-      flex: 4;
-      text-align: left;
-  }
 
   .iconoCantidadUsuarios{
     margin-bottom: -5px;
@@ -519,8 +535,9 @@
 
       .rowUbicacionFecha {
         display: flex;
+        align-content: left;
+        justify-content: center;
         flex-direction: row;
-        flex-wrap: wrap;
         width: 100%;
       }
       
@@ -541,8 +558,10 @@
     
 
     .labelFinalizado{
+        display: flex;
+        flex-direction: row;
         border-radius: 5px;
-        height: 70px;
+        height: 84px;
         width: 100%;
         margin: 0px;
         background: rgba(255, 255, 255, 0.8);
@@ -550,7 +569,7 @@
     
     .labelFinalizado:hover{
         border-radius: 5px;
-        height: 70px;
+        height: 84px;
         width: 100%;
         margin: 0px;
         background: rgba(255, 255, 255, 0.5);
@@ -561,7 +580,7 @@
         display: flex;
         flex-direction: row;
         border-radius: 2px;
-        height: 80px;
+        height: 84px;
         width: 100%;
         margin: 0px;
         background: rgba(255,255,255,0.8);
@@ -569,7 +588,6 @@
 
     .nombreToque{
         font-family: 'Cairo', sans-serif;
-        text-transform: uppercase;
         font-weight: 600;
         margin: 0px;
         font-size: 14px;
@@ -689,5 +707,33 @@
 
 .iconoLugar{
     margin-right: 5px;
+}
+
+.elementoTabla{
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+}
+
+.lugarToque{
+    font-family: 'Cairo', sans-serif;
+    margin: 0px;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.miniaturaImagen{
+    width: auto;
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+
+.divEstrellasOpinion{
+    margin-top: -15px;
 }
 }

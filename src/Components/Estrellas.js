@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux';
 import { guardarOpinionEstrellas } from '../Redux/OpinionesReducer/OpinionesActions';
 import BeatLoader from "react-spinners/BeatLoader";
+import { Form, Col } from 'react-bootstrap';
 
 class Estrellas extends React.Component {
 
@@ -21,7 +22,7 @@ class Estrellas extends React.Component {
         comentario: "",
         usuario: "",
         actualizo: false,
-        loading: this.props.loading
+        loading: this.props.loading, 
     }
 
     componentDidMount() {
@@ -36,7 +37,7 @@ class Estrellas extends React.Component {
         this.setState({
             estiloEstrellas: estrellasNuevas,
             loading: this.props.loading,
-            comentarioRealizado: false
+            comentarioRealizado: false,
         })
     }
 
@@ -71,6 +72,7 @@ class Estrellas extends React.Component {
             voto: true,
             cantidad: parseInt(e.target.id) + 1,
         })
+
 
     }
 
@@ -127,63 +129,58 @@ class Estrellas extends React.Component {
 
         return (
             <div className="divOpinar">
-                <div className="rowEstrellas">
-                    <div className="columnEstrellas2">
-                    <center><p className="explicacion">- Dejá tu opinion del toque, bandas o la organización. </p></center>
-                    <center><p className="explicacion">- Publica articulos perdidos para que den con su dueño/a. </p></center>
-                    <center><p className="explicacion">- Puntúa el toque del 1 al 5 </p></center>
-                    </div>
-                    <div className="columnEstrellas1">
-                        <img
-                         className="iconoComentarios" 
-                         src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592661642/opinion_1_zqyjjn.png"></img>
-                    </div>
-                </div>
                 <div class="comentarios">
-                    <TextField
-                        required
-                        variant="outlined"
-                        value={this.state.usuario}
-                        onChange={this.onChangeUsuario}
-                        style={{ width: '90%' }}
-                        id="standard-basic"
-                        label="Nombre" />
-                    <div className="espacio"></div>
-                    <TextField
-                        multiline
-                        rows={2}
-                        value={this.state.comentario}
-                        variant="outlined"
-                        onChange={this.onChangeComentario}
-                        style={{ width: '90%' }}
-                        label="Comentarios" />
-                </div>
-                <center><span className="puntuaToque">Puntuación:</span></center>
-                <Container style={{ textAlign: 'center', marginTop: 25 }}>
-                    <div class="estrellas">
-                        {estrellas}
-                    </div>
-                </Container>
-                <Container style={{ textAlign: 'center', marginTop: '20px', marginBottom: '10px' }}>
-                    <div className="espacio"></div>
-                    {this.props.loading === true ?
-                        <div>
-                            <div className="centrado">
-                                <BeatLoader
-                                    size={30}
-                                    color={"#123abc"}
-                                />
-                            </div>
+                    <Form.Row>
+                        <Form.Group as={Col}>
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control
+                                onChange={this.onChangeUsuario}
+                                type="text"
+                                placeholder="Nombre" />
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col}>
+                            <Form.Label>Comentarios:</Form.Label>
+                            <Form.Control
+                                onChange={this.onChangeComentario}
+                                value={this.state.comentario}
+
+                                type="text"
+                                as="textarea"
+                                rows="4"
+                                placeholder="Opina sobre la banda, evento u organización, publica articulos perdidos o cualquier otro comentario respecto al toque. " />
+                        </Form.Group>
+                    </Form.Row>
+                    <center><span className="puntuaToque">Puntuación:</span></center>
+                    <Container style={{ textAlign: 'center', marginTop: 25 }}>
+                        <div class="estrellas">
+                            {estrellas}
                         </div>
-                        :
-                        <Button disabled={this.state.usuario.length === 0} onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
-                            <p className="textoBoton">AGREGAR</p>
-                        </Button>
-                    }
-                    {muestroAgregado === true &&
-                        <center><span className="agregadoExito">Opinion agregada exitosamente</span></center>
-                    }
-                </Container>
+                    </Container>
+                    <Container style={{ textAlign: 'center', marginTop: '20px', marginBottom: '10px' }}>
+                        <div className="espacio"></div>
+                        {this.props.loading === true ?
+                            <div>
+                                <div className="espacio"></div>
+                                <div className="centrado">
+                                    <BeatLoader
+                                    style={{marginTop: 30}}
+                                        size={30}
+                                        color={"#123abc"}
+                                    />
+                                </div>
+                            </div>
+                            :
+                            <Button disabled={this.state.usuario.length === 0 || this.props.enviado===true} onClick={() => this.props.agregarToque(this.state.usuario, this.state.cantidad, this.state.comentario)} color="primary" variant="contained">
+                                <p className="textoBoton">AGREGAR</p>
+                            </Button>
+                        }
+                        {muestroAgregado === true &&
+                            <center><span className="agregadoExito">Opinion agregada exitosamente</span></center>
+                        }
+                    </Container>
+                </div>
             </div>
         )
     }

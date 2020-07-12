@@ -3,14 +3,11 @@ import ToqueLabel from './ToqueLabel';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import '../Estilos/Principal.css';
-import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import axios from 'axios';
 import '../constantes';
 import ModalProximoToque from '../Components/Modales/ModalProximoToque.js';
+import { Form } from 'react-bootstrap';
+
 
 class ListaToques extends React.Component {
 
@@ -23,6 +20,7 @@ class ListaToques extends React.Component {
         listaDepartamentos: [],
         textoDeptosSelect: "Departamento",
         textoTamanoSelect: "Tipo de toque",
+        banda: []
     }
 
     componentDidMount = () => {
@@ -44,13 +42,34 @@ class ListaToques extends React.Component {
                 })
         }
     }
+
     detallesRecital = (toque) => {
-        this.setState({
-            openModal: true,
-            toqueSeleccionado: toque,
-            textoDeptosSelect: "",
-            textoTamanoSelect: ""
-        })
+        axios.get('https://desafinando.com/asadoyvino/api/TraerUnaBanda.php?idBanda=' + toque.idBanda)
+            .then(response => {
+                this.setState({
+                    banda: response.data.data[0],
+                    openModal: true,
+                    toqueSeleccionado: toque,
+                    textoDeptosSelect: "",
+                    textoTamanoSelect: ""
+                })
+            })
+            .catch(() => {
+                let bandaError= {
+                    nombre: "No tenemos datos de esta banda",
+                    descripcion: "",
+                    facebook: "",
+                    instagram: "",
+                    youtube: ""
+                }
+                this.setState({
+                    banda: bandaError,
+                    openModal: true,
+                    toqueSeleccionado: toque,
+                    textoDeptosSelect: "",
+                    textoTamanoSelect: ""
+                })
+            })
         document.body.style.overflow = 'hidden';
     }
 
@@ -159,28 +178,27 @@ class ListaToques extends React.Component {
                 <div className="listaToquesDiv">
                     <center><span className="textoFiltrar">PRÓXIMOS TOQUES</span></center>
                     <div className="select">
-                        <FormControl variant="filled" className="selectDepartamento" style={{ margin: 5, backgroundColor: 'white'  }}>
-                            <InputLabel className="selectDepartamento" style={{fontSize: 14}}>{this.state.textoDeptosSelect}</InputLabel>
-                            <Select onChange={this.onChangeSelect}>
-                                <MenuItem value="Todos">Todos</MenuItem>
-                                {this.state.listaDepartamentos.map((departamento) => (
-                                    <MenuItem value={departamento.departamento}>{departamento.departamento}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
+                        <Form.Control
+                            onChange={this.onChangeSelect}
+                            as="select">
+                            {this.state.listaDepartamentos.map((departamento) => (
+                                <option value={departamento.departamento}>{departamento.departamento}</option>
+                            ))}
+                        </Form.Control>
                     </div>
                     <ModalProximoToque
                         openModal={this.state.openModal}
                         toqueSeleccionado={this.state.toqueSeleccionado}
                         cerrarModal={() => this.cerrarModal()}
+                        banda={this.state.banda}
                     ></ModalProximoToque>
                     <div className="listContainer">
                         <List>
                             {
                                 this.state.toques.map((toque) => (
                                     <ListItem onClick={() => this.detallesRecital(toque)}>
-                                            <ToqueLabel toque={toque}>
-                                            </ToqueLabel>
+                                        <ToqueLabel toque={toque}>
+                                        </ToqueLabel>
                                     </ListItem>
                                 ))
                             }

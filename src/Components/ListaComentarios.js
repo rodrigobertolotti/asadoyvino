@@ -8,7 +8,9 @@ import Divider from '@material-ui/core/Divider';
 export default function ListaComentarios(props) {
     return (
         <div className="divComentarios">
-            <div className="espacio"></div>
+            <div className="rowEstrellas">
+                 <span className="usuarioComentario">{props.opiniones.length} opiniones</span>
+            </div>
             <List>
                 {props.opiniones.map((opinion) => (
                     <ListItem>

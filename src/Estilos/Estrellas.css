@@ -44,18 +44,19 @@
 }
 
 .divComentarios{
-    height: 300px;
+    height: 100%;
     overflow: auto;
     display: 'block';
-    width: 90%;
+    width: 100%;
     padding-top: 30px;
     padding-bottom:60px;
     margin-bottom: 60px;
+    padding-left: 15px;
 }
 
 .puntuaToque{
     font-family: 'Cairo', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin:0px;
     font-weight: 600;
 }
@@ -109,30 +110,31 @@
 .estrellas{
     margin-top: 10px;
     margin-bottom: 15px;
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 .comentarios{
     margin: 0px;
-    margin-left: 20px;
+    margin-left: 5px;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
 .puntuaToque{
     font-family: 'Cairo', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin:0px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .divComentarios{
-    height: 450px;
+    height: 100%;
     overflow: auto;
     display: 'block';
     width: 100%;
     padding-bottom:30px;
     padding-top: 20px;
+    padding-left: 15px;
 }
 
 

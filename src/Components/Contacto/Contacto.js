@@ -2,7 +2,7 @@ import React from 'react';
 import './Contacto.css';
 import axios from 'axios';
 import BeatLoader from "react-spinners/BeatLoader";
-import { Form, Col, InputGroup } from 'react-bootstrap';
+import { Form, Col } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 
 class Contacto extends React.Component {
@@ -13,35 +13,37 @@ class Contacto extends React.Component {
         mensaje: '',
         enviado: false,
         cargando: false,
-        width:0,
+        width: 0,
         height: 0
     }
 
     constructor(props) {
         super(props);
-        this.state = { width: 0, height: 0, enviado: false,
+        this.state = {
+            width: 0, height: 0, enviado: false,
             nombre: '',
             mail: '',
             mensaje: '',
             enviado: false,
             cargando: false,
-            width:0,
-            height: 0 };
+            width: 0,
+            height: 0
+        };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-      }
-      
-      componentDidMount(){
+    }
+
+    componentDidMount() {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
-      }
+    }
 
-      componentWillUnmount() {
+    componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
-      }
-      
-      updateWindowDimensions() {
+    }
+
+    updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-      }
+    }
 
     enviarMensaje = () => {
         this.setState({
@@ -79,62 +81,66 @@ class Contacto extends React.Component {
 
     render() {
         return (
-            <div className="fondoContacto" style={{height: this.state.height}}>
+            <div className="fondoContacto" style={{ height: this.state.height }}>
                 <div className="columnContacto">
-                    {this.state.enviado===false && 
-                    <>
-                    <div className="rowContacto">
-                        <p className="textoContacto">Contactate con nosotros</p>
-                    </div>
-                    <Form.Row>
-                                            <Form.Group as={Col} controlId="formGridEmail">
-                                                <Form.Label>Nombre</Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    onChange={this.onChangeNombre}
-                                                    placeholder="Nombre del evento" />
-                                            </Form.Group>
-                                        </Form.Row>
-                                        <Form.Row>
-                                            <Form.Group as={Col} controlId="formGridEmail">
-                                                <Form.Label>Mail</Form.Label>
-                                                <Form.Control
-                                                    type="text"
-                                                    onChange={this.onChangeMail}
-                                                    placeholder="Nombre del evento" />
-                                            </Form.Group>
-                                        </Form.Row>
-                                        <Form.Row>
-                                            <Form.Group as={Col} controlId="formGridEmail">
-                                                <Form.Label>Mensaje</Form.Label>
-                                                <Form.Control
-                                                    onChange={this.onChangeMensaje}
-                                                    type="text"
-                                                    as="textarea" 
-                                                    rows="3"
-                                                    placeholder="Dejanos tu mensaje." />
-                                            </Form.Group>
-                                        </Form.Row>
-                    {this.state.cargando === false &&
-                            <Button
-                                style={{ marginTop: 20 }}
-                                variant="contained"
-                                color="primary"
-                                onClick={this.enviarMensaje}>
-                                <p className="textoBoton">
-                                    ENVIAR
+                    {this.state.enviado === false &&
+                        <div>
+                            <div className="rowContacto">
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridEmail">
+                                        <Form.Control
+                                            type="text"
+                                            onChange={this.onChangeNombre}
+                                            placeholder="Nombre" />
+                                    </Form.Group>
+                                </Form.Row>
+                            </div>
+                            <div className="rowContacto">
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridEmail">
+                                        <Form.Control
+                                            type="text"
+                                            onChange={this.onChangeMail}
+                                            placeholder="Mail" />
+                                    </Form.Group>
+                                </Form.Row>
+                            </div>
+                            <div className="rowContacto">
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridEmail">
+                                        <Form.Control
+                                            onChange={this.onChangeMensaje}
+                                            type="text"
+                                            as="textarea"
+                                            rows="3"
+                                            placeholder="Dejanos tu mensaje." />
+                                    </Form.Group>
+                                </Form.Row>
+                            </div>
+                            {this.state.cargando === false &&
+                                <Button
+                                    style={{ marginTop: 20 }}
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.enviarMensaje}>
+                                    <p className="textoBoton">
+                                        ENVIAR
                         </p>
-                            </Button>
-                        }
-                    </>
-    }
+                                </Button>
+
+                            }
+                        </div>
+                    }
+                    <div>
                         {this.state.cargando === true &&
                             <BeatLoader
-                                style={{margin: 20}}
+                                style={{ margin: 20 }}
                                 size={30}
                                 color={"#123abc"}
                             />
                         }
+                    </div>
+                    <div>
                         {this.state.enviado &&
                             <div className="divGracias">
                                 <img className="iconoAsistireDestacado" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
@@ -145,6 +151,7 @@ class Contacto extends React.Component {
                         }
                     </div>
                 </div>
+            </div>
         )
     }
 }

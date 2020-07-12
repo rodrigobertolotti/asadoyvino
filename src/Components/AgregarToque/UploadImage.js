@@ -11,6 +11,7 @@ function UploadImage(props) {
     const [subido, setSubido] = useState(false);
 
     const uploadImage = async e => {
+        props.cargandoImagen();
         const files = e.target.files
         const data = new FormData()
         data.append('file', files[0])
@@ -24,6 +25,7 @@ function UploadImage(props) {
             }
         )
         const file = await response.json()
+        props.imagenCargada();
         setImage(file.secure_url)
         setLoading(false)
         props.capturo(file.secure_url)
@@ -39,6 +41,7 @@ function UploadImage(props) {
                     <Button
                         variant="contained"
                         component="label"
+                        style={{width: '80%'}}
                     >
                         <input type="file"
                             name="file"

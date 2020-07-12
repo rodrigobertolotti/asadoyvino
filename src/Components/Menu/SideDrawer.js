@@ -13,7 +13,7 @@ const SideDrawer = props => {
         <>
     <nav className={drawerClass}>
     <center>
-            <img src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,w_251/v1592596605/WhatsApp_Image_2020-06-18_at_18.32.53_zaxqrw.jpg"></img>
+            <img className="imgMenu" src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,w_251/v1592596605/WhatsApp_Image_2020-06-18_at_18.32.53_zaxqrw.jpg"></img>
         </center>
         <ul className="ulMenu">
             <li><Link onClick={props.click} to='/home'><p className="textoMenu">TOQUES</p></Link></li>

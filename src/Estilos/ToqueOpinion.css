@@ -4,6 +4,8 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       .columnToqueOpinion{
@@ -18,6 +20,10 @@
         font-size: 14px;
         font-weight: 700;
       }
+
+      .list-horizontal-display {
+        display: inline-block;
+    }
 }
 
 @media only screen and (max-width: 600px){

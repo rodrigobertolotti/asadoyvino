@@ -15,7 +15,7 @@ class ToqueOpinion extends React.Component {
                 console.log("cantidad comentarios: " + response.data.data.length);
                 let cantidadComentarios = response.data.data.length;
                 let listaComentarios = [];
-                let cantidadEstrellas= response.data.data.estrellas;
+                let cantidadEstrellas = response.data.data.estrellas;
                 for (var i = 0; i < cantidadComentarios; i++) {
                     listaComentarios.push(response.data.data[i].comentario);
                 }
@@ -36,25 +36,34 @@ class ToqueOpinion extends React.Component {
     }
     render() {
         let mostrarEstrellas = [];
+        let fecha = this.props.toque.fecha;
+        let fechaSplitArray = fecha.split("-");
+        let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
         for (var i = 0; i < this.state.estrellas; i++) {
             mostrarEstrellas.push(
                 <img className="iconoRock" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1590447939/rock-and-roll_f4axis.png"></img>);
         }
         return (
             <div className="labelFinalizado">
-                <div className="row">
-                    <div className="columna">
-                        <div>
-                            <div>
-                                <div className="row">
-                                    <p className="nombreToque">{this.props.toque.nombre.substring(0,20)}</p>
-                                </div>
-                                <div className="rowUbicacionFecha">
-                                    <span style={{marginRight: 5}} className="cantidadAsistentesOpinion">{this.state.cantidadComentarios} COMENTARIOS  / </span> <div className="divEstrellasOpinion"> {mostrarEstrellas}</div>
-                                </div>
-                            </div>
+                <div className="column4">
+                    <div className="row">
+                        <span className="nombreToque">{this.props.toque.nombre}</span>
+                    </div>
+                    <div className="row">
+                    <p className="lugar">{this.props.toque.lugar} - <strong>{nuevaFecha}</strong></p>
+                </div>
+                    <div className="row">
+                        <div className="divEstrellasOpinion">
+                            {mostrarEstrellas} ({this.state.cantidadComentarios})
                         </div>
                     </div>
+                </div>
+                <div className="column2">
+                {this.props.toque.linkImagen.length>3 ?
+                <img className="miniaturaImagen" src={this.props.toque.linkImagen}></img>
+                :
+                <img className="miniaturaImagen" src="https://res.cloudinary.com/dyvyiepbv/image/upload/c_scale,w_157/v1593011894/LogoA_cuadrado_odqerz.png"></img>
+                }
                 </div>
             </div>
         )

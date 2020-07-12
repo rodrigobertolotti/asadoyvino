@@ -1,29 +1,32 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import 'date-fns';
 import UploadImage from './UploadImage';
 import './AgregarToque.css';
-import { Form, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { Form, Col, InputGroup } from 'react-bootstrap';
 
 class AgregarToque extends React.Component {
 
     state = {
         nombre: "",
         lugar: "",
-        fecha: "10-10-2010",
+        fecha: "10-10-2020",
         hora: "21:00",
         precioEntradas: "",
         ventaEntradas: "",
         descripcion: "",
         cantidadAsistentes: "",
         linkImagen: "",
-        departamento: "",
+        departamento: "Montevideo",
         tamano: "@",
+        telefono: "",
         validoEnvio: false,
-        loading: false
+        loading: false,
+        enviado: false,
+        cargandoImagen: false,
+        habilitoEnvio: false
     }
 
     constructor(props) {
@@ -41,10 +44,14 @@ class AgregarToque extends React.Component {
             descripcion: "",
             cantidadAsistentes: "",
             linkImagen: "",
-            departamento: "",
+            departamento: "Montevideo",
             tamano: "@",
+            telefono: "",
             validoEnvio: false,
-            loading: false
+            loading: false,
+            enviado: false,
+            cargandoImagen: false,
+            habilitoEnvio: false
         };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
@@ -64,7 +71,7 @@ class AgregarToque extends React.Component {
 
     agregarToque = () => {
         this.setState({
-            loading: true
+            enviado: true
         })
         axios.post('https://desafinando.com/asadoyvino/api/AgregarToque.php', {
             "nombre": this.state.nombre,
@@ -78,17 +85,17 @@ class AgregarToque extends React.Component {
             "tamano": this.state.tamano,
             "finalizado": "0",
             "departamento": this.state.departamento,
-            "linkImagen": this.state.linkImagen
+            "linkImagen": this.state.linkImagen,
+            "telefonoContacto": this.state.telefono
         })
-            .then(function (response) {
+            .then(function () {
                 this.setState({
                     loading: false
                 })
             })
             .catch(function (error) {
-                console.log(error);
+
             });
-        this.props.onClick();
     }
 
     handleChangeNombre = (e) => {
@@ -99,7 +106,8 @@ class AgregarToque extends React.Component {
 
     handleChangeFecha = (e) => (
         this.setState({
-            fecha: e.target.value
+            fecha: e.target.value,
+            habilitoEnvio: true
         })
     )
 
@@ -151,10 +159,28 @@ class AgregarToque extends React.Component {
         })
     }
 
+    handleChangeTelefono = (e) => {
+        this.setState({
+            telefono: e.target.value
+        })
+    }
+
+    cargandoImagen = () => {
+        this.setState({
+            cargandoImagen:true
+        })
+    }
+
+    imagenCargada = () => {
+        this.setState({
+            cargandoImagen: false
+        })
+    }
     render() {
-        const listaDepartamentos = ["Canelones", "Maldonado", "San Jose"];
+        const listaDepartamentos = ["Montevideo", "Canelones", "Maldonado", "Rocha", "San Jose", "Treinta y Tres", "Cerro Largo", "Lavalleja", "Tacuarembo", "Rivera", "Salto", "Artigas", "Paysandu", "Rio Negro", "Soriano", "Flores", "Florida", "Colonia", "Durazno",];
         return (
             <div className="fondo" >
+                <div style={{height: 20}}></div>
                 <center><span className="tituloAgregar">AGREGAR TOQUE</span>
                     <p className="textoAgregarToque">
                         Si sos organizador de un evento o tu banda va a realizar un toque en vivo, podes agregar de forma
@@ -164,17 +190,28 @@ class AgregarToque extends React.Component {
                         usuarios puedan seguirla.
                 </p>
                 </center>
-                {this.state.loading === true && <h1>Cargando...</h1>}
                 {this.state.loading === false &&
                     <>
                         <center>
                             <div className="fondoFormularioAgregar">
+                                {this.state.enviado === true &&
+                                    <div className="divGracias">
+                                        <img className="iconoAsistireDestacado" src="https://res.cloudinary.com/dyvyiepbv/image/upload/v1592178375/garrapata_2_sdbmuy.png"></img>
+                                        <p className="mensajeGracias">
+                                            Evento agregado correctamente. Aparecerá en la lista de toques una vez que los datso hayan sido verificados.
+                                            Por cualquier modificación no dudes en contactarte con nosotros en la seccion <a href="">Contacto</a>
+                                        </p>
+                                    </div>
+                                }
+                                {this.state.enviado === false && 
+                                <>
                                 <div className="rowAgregar">
                                     <div className="columnAgregar">
                                         <Form.Row>
                                             <Form.Group as={Col} controlId="formGridEmail">
                                                 <Form.Label>Evento</Form.Label>
                                                 <Form.Control
+                                                    required
                                                     onChange={this.handleChangeNombre}
                                                     type="text"
                                                     placeholder="Nombre del evento" />
@@ -182,6 +219,7 @@ class AgregarToque extends React.Component {
                                             <Form.Group as={Col} controlId="formGridEmail">
                                                 <Form.Label>Lugar</Form.Label>
                                                 <Form.Control
+                                                    required
                                                     onChange={this.handleChangeLugar}
                                                     type="text"
                                                     placeholder="Lugar" />
@@ -191,6 +229,7 @@ class AgregarToque extends React.Component {
                                             <Form.Group as={Col}>
                                                 <Form.Label>Fecha</Form.Label>
                                                 <Form.Control
+                                                    required
                                                     onChange={this.handleChangeFecha.bind(this)}
                                                     type="date"
                                                     placeholder="Fecha del evento" />
@@ -237,10 +276,10 @@ class AgregarToque extends React.Component {
                                                         <InputGroup.Text>@</InputGroup.Text>
                                                     </InputGroup.Prepend>
                                                     <Form.Control
-                                                    onChange={this.onChangeSelectTamano}
-                                                    type="text"
-                                                    width="90%"
-                                                    placeholder="Cuenta de instagram" />
+                                                        onChange={this.onChangeSelectTamano}
+                                                        type="text"
+                                                        width="90%"
+                                                        placeholder="Cuenta de instagram" />
                                                 </InputGroup>
                                             </Form.Group>
                                         </Form.Row>
@@ -250,28 +289,48 @@ class AgregarToque extends React.Component {
                                                 <Form.Control
                                                     onChange={this.handleChangeDescripcion}
                                                     type="text"
-                                                    as="textarea" 
+                                                    as="textarea"
                                                     rows="3"
                                                     placeholder="Descripcion y detalles del evento" />
                                             </Form.Group>
                                         </Form.Row>
+                                        <Form.Row>
+                                            <Form.Group as={Col} controlId="formGridEmail">
+                                                <Form.Label>Telefono de contacto</Form.Label>
+                                                <Form.Control
+                                                    onChange={this.handleChangeTelefono}
+                                                    type="text"
+                                                    as="textarea"
+                                                    rows="1"
+                                                    placeholder="Telefono" />
+                                            </Form.Group>
+                                        </Form.Row>
                                     </div>
                                 </div>
-                                <UploadImage capturo={(e) => this.capturoLinkImagen(e)}></UploadImage>
+                                <UploadImage 
+                                cargandoImagen={() => this.cargandoImagen()} 
+                                imagenCargada={() => this.imagenCargada()}
+                                capturo={(e) => this.capturoLinkImagen(e)}></UploadImage>
                                 <Container style={{ textAlign: 'center', margin: '20px' }}>
                                     <Button
                                         color="primary"
                                         onClick={this.agregarToque}
                                         style={{ marginBottom: 20 }}
-                                        disabled={this.state.nombre.length < 4 && this.state.lugar.length < 4}
+                                        disabled={this.state.nombre.length < 4 
+                                            || this.state.lugar.length < 4 
+                                            || this.state.cargandoImagen===true
+                                            || this.state.habilitoEnvio===false}
                                         variant="contained">
                                         <p className="textoBoton">AGREGAR</p>
                                     </Button>
                                 </Container>
+                            </>
+                            }
                             </div>
                         </center>
                     </>
                 }
+                <div style={{height: 30}}></div>
             </div>
 
         )
