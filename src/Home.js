@@ -2,6 +2,7 @@ import React from 'react';
 import ListaToques from './Components/ListaToques';
 import ListaToquesOpinion from './Components/ListaToquesOpinion';
 import Destacado from './Components/Destacado/Destacado';
+import Add from './Components/Admin/Add';
 import './Estilos/Principal.css';
 import './Estilos/App.css';
 import { Container, Button, lightColors, darkColors } from 'react-floating-action-button'
@@ -9,6 +10,7 @@ import { Container, Button, lightColors, darkColors } from 'react-floating-actio
 function Home() {
   console.log(window.innerWidth);
   return (
+    <>
     <div className="fondo" style={{width: window.innerWidth}}>
       <div className="rowGeneral">
         <div className="columnGeneral">
@@ -30,6 +32,7 @@ function Home() {
                 onClick={enviarMensaje} />
         </Container>
     </div>
+    </>
   );
 }
 

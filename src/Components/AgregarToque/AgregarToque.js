@@ -6,6 +6,7 @@ import 'date-fns';
 import UploadImage from './UploadImage';
 import './AgregarToque.css';
 import { Form, Col, InputGroup } from 'react-bootstrap';
+import TimePicker from 'react-bootstrap-time-picker';
 
 class AgregarToque extends React.Component {
 
@@ -51,7 +52,8 @@ class AgregarToque extends React.Component {
             loading: false,
             enviado: false,
             cargandoImagen: false,
-            habilitoEnvio: false
+            habilitoEnvio: false,
+            especificarLugar: false
         };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
@@ -112,6 +114,11 @@ class AgregarToque extends React.Component {
     )
 
     handleChangeLugar = (e) => {
+        if (e.target.value==="Otro"){
+            this.setState({
+                especificarLugar: true
+            })
+        }
         this.setState({
             lugar: e.target.value
         })
@@ -131,7 +138,7 @@ class AgregarToque extends React.Component {
 
     handleChangeHora = (e) => (
         this.setState({
-            hora: e.target.value
+            hora: e
         })
     )
 
@@ -178,6 +185,8 @@ class AgregarToque extends React.Component {
     }
     render() {
         const listaDepartamentos = ["Montevideo", "Canelones", "Maldonado", "Rocha", "San Jose", "Treinta y Tres", "Cerro Largo", "Lavalleja", "Tacuarembo", "Rivera", "Salto", "Artigas", "Paysandu", "Rio Negro", "Soriano", "Flores", "Florida", "Colonia", "Durazno",];
+        const listaLugares = ["La Trastienda","Sala del Museo","BLAST","Velodromo","Teatro de Verano","Otro"];
+        const ventaEntradas = ["Abitab","Red Tickets","Redes de la banda","Puerta"];
         return (
             <div className="fondo" >
                 <div style={{height: 20}}></div>
@@ -218,11 +227,22 @@ class AgregarToque extends React.Component {
                                             </Form.Group>
                                             <Form.Group as={Col} controlId="formGridEmail">
                                                 <Form.Label>Lugar</Form.Label>
+                                                {this.state.especificarLugar===false ?
                                                 <Form.Control
-                                                    required
                                                     onChange={this.handleChangeLugar}
-                                                    type="text"
-                                                    placeholder="Lugar" />
+                                                    as="select">
+                                                    {listaLugares.map((lugar) => (
+                                                        <option value={lugar}>{lugar}</option>
+                                                    ))}
+                                                </Form.Control>
+                                                :
+                                                <Form.Control
+                                                onChange={this.handleChangeLugar}
+                                                type="text"
+                                                placeholder="Nombre del lugar"
+                                                >
+                                                </Form.Control>
+                                                }
                                             </Form.Group>
                                         </Form.Row>
                                         <Form.Row>
@@ -236,10 +256,12 @@ class AgregarToque extends React.Component {
                                             </Form.Group>
                                             <Form.Group as={Col} controlId="formGridEmail">
                                                 <Form.Label>Hora</Form.Label>
-                                                <Form.Control
-                                                    onChange={this.handleChangeHora}
-                                                    type="text"
-                                                    placeholder="Hora" />
+                                                <TimePicker 
+                                                onChange={this.handleChangeHora}
+                                                value={this.state.hora}
+                                                start="10:00" 
+                                                end="23:45" 
+                                                step={15} />
                                             </Form.Group>
                                         </Form.Row>
                                         <Form.Row>
@@ -254,8 +276,11 @@ class AgregarToque extends React.Component {
                                                 <Form.Label>Puntos de venta</Form.Label>
                                                 <Form.Control
                                                     onChange={this.handleChangeDondeCompro}
-                                                    type="text"
-                                                    placeholder="Puntos de venta" />
+                                                    as="select">
+                                                    {ventaEntradas.map((punto) => (
+                                                        <option value={punto}>{punto}</option>
+                                                    ))}
+                                                </Form.Control>
                                             </Form.Group>
                                         </Form.Row>
                                         <Form.Row>
@@ -296,13 +321,13 @@ class AgregarToque extends React.Component {
                                         </Form.Row>
                                         <Form.Row>
                                             <Form.Group as={Col} controlId="formGridEmail">
-                                                <Form.Label>Telefono de contacto</Form.Label>
+                                                <Form.Label>Mail de contacto</Form.Label>
                                                 <Form.Control
                                                     onChange={this.handleChangeTelefono}
                                                     type="text"
                                                     as="textarea"
                                                     rows="1"
-                                                    placeholder="Telefono" />
+                                                    placeholder="Mail de contacto" />
                                             </Form.Group>
                                         </Form.Row>
                                     </div>

@@ -6,6 +6,14 @@ import { confirmarAsistencia } from '../Redux/AsistentesReducer/AsistentesAction
 import { connect } from 'react-redux';
 import '../Estilos/ModalProximoToque.css';
 import BeatLoader from "react-spinners/BeatLoader";
+import {
+    FacebookShareCount,
+    WhatsappShareButton,
+    FacebookIcon,
+    WhatsappIcon,
+    FacebookShareButton
+} from "react-share";
+
 
 class ProximoToque extends React.Component {
 
@@ -24,7 +32,7 @@ class ProximoToque extends React.Component {
                 estiloContador: "subtitulochico",
                 sume: true,
                 loadingSumar: false,
-                banda:''
+                banda: ''
             }
         } else {
             this.state = {
@@ -32,7 +40,7 @@ class ProximoToque extends React.Component {
                 estiloContador: "subtitulochico",
                 sume: false,
                 loadingSumar: false,
-                banda:''
+                banda: ''
             }
         }
     }
@@ -75,7 +83,7 @@ class ProximoToque extends React.Component {
     }
 
     diaSemana = (fecha) => {
-        let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado","Domingo"];
+        let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
         let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         let fechaNum = fecha.getUTCDate();
         let mes_name = fecha.getMonth();
@@ -83,6 +91,9 @@ class ProximoToque extends React.Component {
     }
 
     render() {
+        let fecha = this.props.toque.fecha;
+        let fechaSplitArray = fecha.split("-");
+        let nuevaFecha = fechaSplitArray[2] + "/" + fechaSplitArray[1];
         return (
             <div>
                 <div className="divAgregar">
@@ -103,6 +114,21 @@ class ProximoToque extends React.Component {
                     <img className="flyerToque" alt="" src={this.props.toque.linkImagen} />
                     <p className="textoDescripcion">{this.props.toque.descipcion}</p>
                     <div className="espacio"></div>
+                    <div className="row">
+                        <span class="textoCaracteristicas">Compartir con amigos</span>
+                        <FacebookShareButton
+                            url={"www.desafinando.com"}
+                            quote={this.props.toque.nombre + " en " + this.props.toque.lugar + " el " + nuevaFecha + " a las " + this.props.toque.hora + " hs."}
+                            className="m-2">
+                            <FacebookIcon size={32} round={true} />
+                        </FacebookShareButton>
+                        <WhatsappShareButton
+                            title={this.props.toque.nombre + " en " + this.props.toque.lugar + " el " + nuevaFecha + " a las " + this.props.toque.hora + " hs."}
+                            separator=" "
+                            url="www.desafinando.com">
+                            <WhatsappIcon size={32} round={true} />
+                        </WhatsappShareButton>
+                    </div>
                     <div className="columna1">
                         {this.state.loadingSumar === false &&
                             (

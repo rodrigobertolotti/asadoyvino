@@ -7,6 +7,7 @@ import Backdrop from './Components/Menu/Backdrop';
 import Contacto from './Components/Contacto/Contacto';
 import Proximamente from './Components/Proximamente';
 import AgregarToque from './Components/AgregarToque/AgregarToque';
+import Add from './Components/Admin/Add';
 
 class App extends React.Component{
 
@@ -40,6 +41,7 @@ class App extends React.Component{
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/home" component={Home}></Route>
                 <Route exact path="/agregartoque" component={AgregarToque}></Route>
+                <Route exact path="/admin" component={Add}></Route>
                 <Route path="/bandas/" component={Proximamente}></Route>
                 <Route path="/contacto" component={Contacto}></Route>
             </BrowserRouter>

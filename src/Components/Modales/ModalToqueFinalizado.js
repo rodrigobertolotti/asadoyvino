@@ -1,7 +1,6 @@
 import React from 'react';
 import ListaComentarios from '../ListaComentarios';
 import Estrellas from '../Estrellas';
-import '../../Estilos/ToqueOpinion.css';
 import axios from 'axios';
 import BeatLoader from "react-spinners/BeatLoader";
 import Paper from '@material-ui/core/Paper';
